@@ -200,7 +200,10 @@ public class GamePlayManager : MonoBehaviour
             currentKnife.ThrowKnife();
             StartCoroutine(GenerateKnife());
         }
-
+        if(Input.GetMouseButtonDown(0) && !currentKnife.isFire)
+        {
+            DragKnife();
+        }
     }
     public void spawnCircle()
     {
@@ -285,7 +288,16 @@ public class GamePlayManager : MonoBehaviour
         }
     }
 
-    //edited add knife drag back fuctions
+    //edited add knife drag back fuction
+    public void DragKnife()
+    {
+        //if (currentCircle.totalKnife > totalSpawnKnife && !GameManager.isGameOver)
+       // {
+            currentKnife.transform.position = new Vector3(KnifeSpawnPoint.position.x - 0.4f, KnifeSpawnPoint.position.y, KnifeSpawnPoint.position.z);
+            //currentKnife.transform.position= Vector3.Lerp(currentKnife.transform.position, new Vector3(KnifeSpawnPoint.transform.position.x - 1f, KnifeSpawnPoint.transform.position.y, KnifeSpawnPoint.transform.position.z), 0.1f * 1);
+       // }
+
+    }
 
     public void NextLevel()
     {
