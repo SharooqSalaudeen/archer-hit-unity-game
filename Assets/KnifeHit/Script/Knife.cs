@@ -40,8 +40,14 @@ public class Knife : MonoBehaviour {
 			rb.isKinematic = false;
             //edited new Vector2 (0f, speed) to new Vector2 (speed, 0f) **make knife go vertical
             rb.AddForce (new Vector2 (speed, 0f), ForceMode2D.Impulse);
-			SoundManager.instance.PlaySingle (ThrowKnifeSfx);
-		}
+            //edited add next 5 lines (4th line is original)
+            #if UNITY_ANDROID && !UNITY_EDITOR
+                SoundManager.instance.ThrowKnifeSFX();
+            #else
+            SoundManager.instance.PlaySingle (ThrowKnifeSfx);
+            #endif
+
+        }
 	}
 
 
@@ -51,8 +57,14 @@ public class Knife : MonoBehaviour {
 			GameManager.isGameOver = true;
 			GetComponents<BoxCollider2D> () [0].enabled = false;
 			GetComponents<BoxCollider2D> () [1].enabled = false;
-			SoundManager.instance.PlaySingle (knifeHitsfx);
-			SoundManager.instance.playVibrate ();
+            //edited add next 5 lines (4th line is original)
+            #if UNITY_ANDROID && !UNITY_EDITOR
+                SoundManager.instance.KnifeHitSFX();
+            #else
+                SoundManager.instance.PlaySingle (knifeHitsfx);
+            #endif
+
+            SoundManager.instance.playVibrate ();
 			rb.freezeRotation = false;
 			rb.velocity = Vector2.zero;
 			rb.angularVelocity = Random.Range (20f, 50f) * 25f;

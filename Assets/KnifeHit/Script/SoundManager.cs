@@ -5,8 +5,19 @@ using UnityEngine;
 public class SoundManager : MonoBehaviour {
 
 	public static SoundManager instance;
+    //edited audio file reference
+    int knifeHitFID;
+    int throwKnifeFID;
+    int lastHitFID;
+    int woodHitFID;
 
-	public AudioSource efxSource;
+    //edited audio stream reference
+    int knifeHitSID;
+    int throwKnifeSID;
+    int lastHitSID;
+    int woodHitSID;
+
+    public AudioSource efxSource;
 	public AudioClip btnSfx;
 	public AudioClip timeSfx;
 	// Use this for initialization
@@ -20,6 +31,17 @@ public class SoundManager : MonoBehaviour {
 		}
 		
 	}
+    //edited add whole fuction start
+    void Start()
+    {
+        AndroidNativeAudio.makePool();
+        //loading all FileID's
+        knifeHitFID = AndroidNativeAudio.load("ev_knife_hit_1.mp3");
+        throwKnifeFID = AndroidNativeAudio.load("ev_throw_1.mp3");
+        lastHitFID = AndroidNativeAudio.load("ev_hit_last.mp3");
+        woodHitFID = AndroidNativeAudio.load("ev_hit_1.mp3");
+    }
+
 	public void PlaySingle(AudioClip clip,float vol=1f)
 	{
 		//Set the clip of our efxSource audio source to the clip passed in as a parameter.
@@ -53,5 +75,31 @@ public class SoundManager : MonoBehaviour {
 			Handheld.Vibrate ();
 
 	}
+    //edited add whole fuctions below StreamID's
+    public void KnifeHitSFX()
+    {
+        knifeHitSID = AndroidNativeAudio.play(knifeHitFID);
+    }
+    public void ThrowKnifeSFX()
+    {
+        throwKnifeSID = AndroidNativeAudio.play(throwKnifeFID);
+    }
+    public void LastHitSFX()
+    {
+        lastHitSID = AndroidNativeAudio.play(lastHitFID);
+    }
+    public void WoodHitSFX()
+    {
+        woodHitSID = AndroidNativeAudio.play(woodHitFID);
+    }
 
+    // Clean up when done
+    void OnApplicationQuit()
+    {       
+        AndroidNativeAudio.unload(knifeHitSID);
+        AndroidNativeAudio.unload(throwKnifeSID);
+        AndroidNativeAudio.unload(lastHitSID);
+        AndroidNativeAudio.unload(woodHitSID);
+        AndroidNativeAudio.releasePool();
+    }
 }

@@ -192,7 +192,9 @@ public class GamePlayManager : MonoBehaviour
     {
         if (currentKnife == null)
             return;
-        if (Input.GetMouseButtonDown(0) && !currentKnife.isFire)
+
+        //edited (Input.GetMouseButtonDown(0) && !currentKnife.isFire) to (Input.GetMouseButtonUp(0) && !currentKnife.isFire)
+        if (Input.GetMouseButtonUp(0) && !currentKnife.isFire)
         {
             KnifeCounter.intance.setHitedKnife(totalSpawnKnife);
             currentKnife.ThrowKnife();
@@ -282,6 +284,8 @@ public class GamePlayManager : MonoBehaviour
             currentKnife = tempKnife.GetComponent<Knife>();
         }
     }
+
+    //edited add knife drag back fuctions
 
     public void NextLevel()
     {

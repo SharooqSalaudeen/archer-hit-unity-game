@@ -114,11 +114,21 @@ public class Circle : MonoBehaviour {
 		if (hitedKnife.Count >= totalKnife) {
 				if (!GameManager.isGameOver) {
 					StartCoroutine (RelaseAllKnife ());
-					SoundManager.instance.PlaySingle (LasthitSfx);
+                //edited add next 5 lines (4th line is original)
+                #if UNITY_ANDROID && !UNITY_EDITOR
+                    SoundManager.instance.LastHitSFX();
+                #else
+                    SoundManager.instance.PlaySingle (LasthitSfx);
+                #endif                
 				}
 			} else {
 				playParticle(GamePlayManager.instance.circleSpawnPoint.transform.position,splashParticle);
-				SoundManager.instance.PlaySingle (woodHitSfx);
+            //edited add next 5 lines (4th line is original)
+            #if UNITY_ANDROID && !UNITY_EDITOR
+                    SoundManager.instance.WoodHitSFX();
+            #else
+            SoundManager.instance.PlaySingle (woodHitSfx);
+            #endif
 			}
 			GameManager.score++;
 		}

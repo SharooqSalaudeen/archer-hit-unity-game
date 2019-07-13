@@ -17,3 +17,4 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/KnifeHit/Scene/MyGameScene.unity
     guid: d255330a2005abd44a04e16c682a5558
+  m_configObjects: {}
