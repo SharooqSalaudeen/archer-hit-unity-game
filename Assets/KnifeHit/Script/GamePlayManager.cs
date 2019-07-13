@@ -9,7 +9,7 @@ using EasyMobile;
 
 public class GamePlayManager : MonoBehaviour
 {
-
+    
     public static GamePlayManager instance;
     [Header("Circle Setting")]
     public Circle[] circlePrefabs;
@@ -24,14 +24,23 @@ public class GamePlayManager : MonoBehaviour
     public Transform KnifeSpawnPoint;
     //edited knifeHeightByScreen = .1f; to knifeWidthByScreen = .1f;
     [Range(0f, 1f)] public float knifeWidthByScreen = .1f;
-
     public GameObject ApplePrefab;
+
+    //edited add 4 lines
+    [Header("Bow Settings")]
+    public Bow bowPrefab;
+    public Transform bowSpawnPoint;
+    [Range(0f, 1f)] public float bowHeightByScreen = .5f;
+
+
     [Header("UI Object")]
     public Text lblScore;
     public Text lblStage;
     public List<Image> stageIcons;
     public Color stageIconActiveColor;
     public Color stageIconNormalColor;
+
+    
 
     [Header("UI Boss")]
 
@@ -57,7 +66,9 @@ public class GamePlayManager : MonoBehaviour
     string currentBossName = "";
     Circle currentCircle;
     Knife currentKnife;
+    Bow currentBow;
     bool usedAdContinue;
+
     public int totalSpawnKnife
     {
         get
@@ -150,6 +161,8 @@ public class GamePlayManager : MonoBehaviour
         GameManager.Stage = 1;
         GameManager.isGameOver = false;
         usedAdContinue = false;
+        //edited add fuction SpawnBow()
+        SpawnBow();
         if (isDebug)
         {
             GameManager.Stage = cLevel;
@@ -193,16 +206,19 @@ public class GamePlayManager : MonoBehaviour
         if (currentKnife == null)
             return;
 
-        //edited (Input.GetMouseButtonDown(0) && !currentKnife.isFire) to (Input.GetMouseButtonUp(0) && !currentKnife.isFire)
+        //edited (Input.GetMouseButtonDown(0) && !currentKnife.isFire) to (Input.GetMouseButtonUp(0) && !currentKnife.isFire) to fire when released
         if (Input.GetMouseButtonUp(0) && !currentKnife.isFire)
-        {
+        {  
             KnifeCounter.intance.setHitedKnife(totalSpawnKnife);
             currentKnife.ThrowKnife();
+            currentBow.BowShake();
             StartCoroutine(GenerateKnife());
+
         }
+        //edited add if statement to drag back arrow on hold
         if(Input.GetMouseButtonDown(0) && !currentKnife.isFire)
         {
-            DragKnife();
+            currentKnife.DrawArrow();
         }
     }
     public void spawnCircle()
@@ -235,8 +251,18 @@ public class GamePlayManager : MonoBehaviour
         LeanTween.scale(tempCircle, new Vector3(circleScale, circleScale, circleScale), .3f).setEaseOutBounce();
         //tempCircle.transform.localScale = Vector3.one*circleScale;
         currentCircle = tempCircle.GetComponent<Circle>();
-
     }
+
+    //edited add fuction SpawnBox
+    public void SpawnBow()
+    {
+        GameObject tempBow;
+        tempBow = Instantiate<Bow>(bowPrefab, bowSpawnPoint.position, Quaternion.identity, bowSpawnPoint).gameObject;
+        float bowScale = (GameManager.ScreenHeight * bowHeightByScreen) / tempBow.GetComponent<SpriteRenderer>().bounds.size.x;
+        tempBow.transform.localScale = Vector3.one * bowScale;
+        currentBow = tempBow.GetComponent<Bow>();
+    }
+
     public IEnumerator OnBossFightStart()
     {
         bossFightStart.SetActive(true);
@@ -281,7 +307,7 @@ public class GamePlayManager : MonoBehaviour
             tempKnife.transform.localScale = Vector3.one * knifeScale;
             //edited next line is added to rotate the object to 90 degrees
             tempKnife.transform.Rotate(0, 0, -90, Space.Self);
-            //edited moveLocalY(tempKnife, 0, 0.1f); to moveLocalX(tempKnife, 0, 0.1f);
+            //edited moveLocalY(tempKnife, 0, 0.1f); to moveLocalX(tempKnife, 0, 0.1f); to generate knife in X axis motion
             LeanTween.moveLocalX(tempKnife, 0, 0.1f);
             tempKnife.name = "Knife" + totalSpawnKnife;
             currentKnife = tempKnife.GetComponent<Knife>();
@@ -289,15 +315,16 @@ public class GamePlayManager : MonoBehaviour
     }
 
     //edited add knife drag back fuction
-    public void DragKnife()
-    {
+    //public void DragKnife()
+    //{
         //if (currentCircle.totalKnife > totalSpawnKnife && !GameManager.isGameOver)
-       // {
-            currentKnife.transform.position = new Vector3(KnifeSpawnPoint.position.x - 0.4f, KnifeSpawnPoint.position.y, KnifeSpawnPoint.position.z);
+        // {
+        //LeanTween.moveLocalX(GameObject, -1f, 0.1f);
+        //currentKnife.transform.position = new Vector3(KnifeSpawnPoint.position.x - 0.4f, KnifeSpawnPoint.position.y, KnifeSpawnPoint.position.z);
             //currentKnife.transform.position= Vector3.Lerp(currentKnife.transform.position, new Vector3(KnifeSpawnPoint.transform.position.x - 1f, KnifeSpawnPoint.transform.position.y, KnifeSpawnPoint.transform.position.z), 0.1f * 1);
        // }
 
-    }
+   // }
 
     public void NextLevel()
     {

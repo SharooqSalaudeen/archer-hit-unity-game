@@ -109,8 +109,8 @@ public class Circle : MonoBehaviour {
 			hitedKnife.Add (k);
 
 			playParticle(k.transform.position,hitParticle);
-        //edited (gameObject, 0.1f, 0.05f) to (gameObject, 0f, 0.05f)
-        LeanTween.moveLocalY (gameObject, 0.1f, 0.05f).setLoopPingPong(1);
+        //edited moveLocalX (gameObject, 0.1f, 0.05f) to moveLocalY (gameObject, 0.2f, 0.05f) (make the circle vibrate more and on y axis on hit) 
+        LeanTween.moveLocalX (gameObject, 0.2f, 0.05f).setLoopPingPong(1);
 		if (hitedKnife.Count >= totalKnife) {
 				if (!GameManager.isGameOver) {
 					StartCoroutine (RelaseAllKnife ());

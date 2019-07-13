@@ -1,6 +1,4 @@
-﻿
-
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -31,6 +29,13 @@ public class Knife : MonoBehaviour {
 			//rb.velocity = Vector2.up * speed;
 		}
 	}
+
+    //edited add fuction for drawing arrow back
+    public void DrawArrow()
+    {
+        LeanTween.moveLocalX(gameObject, -0.75f, 0.05f);
+    }
+
 	public void ThrowKnife()
 	{	
 		if (!isFire && !GameManager.isGameOver) {
@@ -38,14 +43,15 @@ public class Knife : MonoBehaviour {
 			GetComponents<BoxCollider2D> () [0].enabled = true;
 			GetComponents<BoxCollider2D> () [1].enabled = true;
 			rb.isKinematic = false;
-            //edited new Vector2 (0f, speed) to new Vector2 (speed, 0f) **make knife go vertical
+            //edited new Vector2 (0f, speed) to new Vector2 (speed, 0f) **make knife go vertical to the circle
             rb.AddForce (new Vector2 (speed, 0f), ForceMode2D.Impulse);
             //edited add next 5 lines (4th line is original)
             #if UNITY_ANDROID && !UNITY_EDITOR
                 SoundManager.instance.ThrowKnifeSFX();
             #else
             SoundManager.instance.PlaySingle (ThrowKnifeSfx);
-            #endif
+            #endif
+
 
         }
 	}
