@@ -3632,6 +3632,11 @@ Prefab:
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114372333234866374, guid: c5a861ec699af164e96502dde941b31b,
+        type: 2}
+      propertyPath: soundManager
+      value: 
+      objectReference: {fileID: 1224855278}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c5a861ec699af164e96502dde941b31b, type: 2}
   m_IsPrefabParent: 0

@@ -93,7 +93,26 @@ public class SoundManager : MonoBehaviour {
         woodHitSID = AndroidNativeAudio.play(woodHitFID);
     }
 
-    // Clean up when done
+    //edited Mute sound function
+    public void SoundMute()
+    {
+        AndroidNativeAudio.setVolume(knifeHitSID, 0f);
+        AndroidNativeAudio.setVolume(throwKnifeSID, 0f);
+        AndroidNativeAudio.setVolume(lastHitSID, 0f);
+        AndroidNativeAudio.setVolume(woodHitSID, 0f);
+    }
+
+    public void SoundUnMute()
+    {
+        AndroidNativeAudio.setVolume(knifeHitSID, 1f);
+        AndroidNativeAudio.setVolume(throwKnifeSID, 1f);
+        AndroidNativeAudio.setVolume(lastHitSID, 1f);
+        AndroidNativeAudio.setVolume(woodHitSID, 1f);
+        Debug.Log("Mute is working");
+    }
+
+
+    // edited Clean up when done
     void OnApplicationQuit()
     {       
         AndroidNativeAudio.unload(knifeHitSID);

@@ -11,8 +11,10 @@ public class SettingUI : MonoBehaviour {
 	public  GameObject UIParent;
     public Text removeAdPriceText;
 	public static SettingUI intance;
+    //edited add reference to SoundManager
+    public SoundManager soundManager;
 
-	void Awake()
+    void Awake()
 	{
 		if (intance == null) 
 		{
@@ -20,23 +22,41 @@ public class SettingUI : MonoBehaviour {
 		}
 	}
 
-	void Start()
+    //edited made public
+	public void Start()
 	{
-
+        
 		soundToggle.onValueChanged.RemoveAllListeners ();
 		vibrationToggle.onValueChanged.RemoveAllListeners ();
 		updateUI ();
 		soundToggle.onValueChanged.AddListener ((arg0) =>{ 
 			GameManager.Sound=arg0;
-			if(arg0)
-				SoundManager.instance.PlaybtnSfx ();
-		} );
+            if (arg0)
+            {
+                SoundManager.instance.PlaybtnSfx();
+                //edited add line
+                soundManager.SoundUnMute();
+            }
+            else
+                soundManager.SoundMute();
+        } );
 		vibrationToggle.onValueChanged.AddListener ((arg0) =>{ 
 			GameManager.Vibration=arg0;
 			if(arg0)
 				SoundManager.instance.playVibrate();
 		} );
 
+        //edited if condition to mute game or not
+        //#if UNITY_ANDROID && !UNITY_EDITOR
+        /*    if (!GameManager.Sound)
+            {
+                soundManager.SoundMute();
+            }
+            else
+            {
+                soundManager.SoundUnMute();
+            }*/
+        //#endif
 
 #if IAP && UNITY_PURCHASING
         Purchaser.instance.onItemPurchased += OnItemPurchased;
@@ -53,8 +73,8 @@ public class SettingUI : MonoBehaviour {
 
 	public void updateUI()
 	{
-		soundToggle.isOn = GameManager.Sound;
-		vibrationToggle.isOn = GameManager.Vibration;
+        soundToggle.isOn = GameManager.Sound;
+        vibrationToggle.isOn = GameManager.Vibration;
 	}
 
 	public void OnRestorPurchases()

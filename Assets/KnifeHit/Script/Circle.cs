@@ -57,8 +57,11 @@ public class Circle : MonoBehaviour {
 	void SpawnKnife()
 	{
 		foreach (float item in RandomLevels[currentLevelndex].KnifeAngles) {
-			GameObject tempKnife = Instantiate<GameObject> (GamePlayManager.instance.knifePrefab.gameObject);
-			tempKnife.transform.SetParent (transform);
+            //edited to update the same selected knife on circle as default (lines 2)
+            //GameObject tempKnife = Instantiate<GameObject> (GamePlayManager.instance.knifePrefab.gameObject);
+            GameObject tempKnife = Instantiate<GameObject>(GameManager.selectedKnifePrefab.gameObject);
+
+            tempKnife.transform.SetParent (transform);
 			tempKnife.GetComponent<Knife> ().isHitted = true;
 			tempKnife.GetComponent<Knife> ().isFire = true;
 			tempKnife.GetComponents<BoxCollider2D> () [0].enabled = true;
