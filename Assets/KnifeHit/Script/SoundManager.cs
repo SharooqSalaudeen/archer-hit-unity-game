@@ -75,40 +75,27 @@ public class SoundManager : MonoBehaviour {
 			Handheld.Vibrate ();
 
 	}
+
     //edited add whole fuctions below StreamID's
     public void KnifeHitSFX()
     {
-        knifeHitSID = AndroidNativeAudio.play(knifeHitFID);
+        if (GameManager.Sound)
+            knifeHitSID = AndroidNativeAudio.play(knifeHitFID);
     }
     public void ThrowKnifeSFX()
     {
-        throwKnifeSID = AndroidNativeAudio.play(throwKnifeFID);
+        if (GameManager.Sound)
+            throwKnifeSID = AndroidNativeAudio.play(throwKnifeFID);
     }
     public void LastHitSFX()
     {
-        lastHitSID = AndroidNativeAudio.play(lastHitFID);
+        if (GameManager.Sound)
+            lastHitSID = AndroidNativeAudio.play(lastHitFID);
     }
     public void WoodHitSFX()
     {
-        woodHitSID = AndroidNativeAudio.play(woodHitFID);
-    }
-
-    //edited Mute sound function
-    public void SoundMute()
-    {
-        AndroidNativeAudio.setVolume(knifeHitSID, 0f);
-        AndroidNativeAudio.setVolume(throwKnifeSID, 0f);
-        AndroidNativeAudio.setVolume(lastHitSID, 0f);
-        AndroidNativeAudio.setVolume(woodHitSID, 0f);
-    }
-
-    public void SoundUnMute()
-    {
-        AndroidNativeAudio.setVolume(knifeHitSID, 1f);
-        AndroidNativeAudio.setVolume(throwKnifeSID, 1f);
-        AndroidNativeAudio.setVolume(lastHitSID, 1f);
-        AndroidNativeAudio.setVolume(woodHitSID, 1f);
-        Debug.Log("Mute is working");
+        if (GameManager.Sound)
+            woodHitSID = AndroidNativeAudio.play(woodHitFID);
     }
 
 

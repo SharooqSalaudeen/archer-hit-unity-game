@@ -7,7 +7,9 @@ public class GameManager : MonoBehaviour {
 
 	public static bool isGameOver=false;
 	public static Knife selectedKnifePrefab=null;
-	public static float ScreenHeight{
+    //edited add line for Bow
+    public static Bow selectedBowPrefab = null;
+    public static float ScreenHeight{
 		get
 		{ 
 			if(Camera.main!=null)
@@ -87,7 +89,21 @@ public class GameManager : MonoBehaviour {
 			PlayerPrefs.SetInt ("SelectedKnifeIndex", value);
 		}
 	}
-	public static bool Sound
+
+    //edited add bow index
+    public static int SelectedBowIndex
+    {
+        get
+        {
+            return PlayerPrefs.GetInt("SelectedBowIndex", 0);
+        }
+        set
+        {
+            PlayerPrefs.SetInt("SelectedBowIndex", value);
+        }
+    }
+
+    public static bool Sound
 	{
 		get
 		{

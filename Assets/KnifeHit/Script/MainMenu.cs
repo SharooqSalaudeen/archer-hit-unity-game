@@ -13,7 +13,9 @@ public class MainMenu : MonoBehaviour
 	public GameObject giftBlackScreen;
 	public GameObject giftParticle;
 	public Image selectedKnifeImage;
-	public AudioClip giftSfx;
+    //edited add selectedBowImage for Shop
+    public Image selectedBowImage;
+    public AudioClip giftSfx;
 
 	public static MainMenu intance;
 

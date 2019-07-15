@@ -34,29 +34,13 @@ public class SettingUI : MonoBehaviour {
             if (arg0)
             {
                 SoundManager.instance.PlaybtnSfx();
-                //edited add line
-                soundManager.SoundUnMute();
             }
-            else
-                soundManager.SoundMute();
         } );
 		vibrationToggle.onValueChanged.AddListener ((arg0) =>{ 
 			GameManager.Vibration=arg0;
 			if(arg0)
 				SoundManager.instance.playVibrate();
 		} );
-
-        //edited if condition to mute game or not
-        //#if UNITY_ANDROID && !UNITY_EDITOR
-        /*    if (!GameManager.Sound)
-            {
-                soundManager.SoundMute();
-            }
-            else
-            {
-                soundManager.SoundUnMute();
-            }*/
-        //#endif
 
 #if IAP && UNITY_PURCHASING
         Purchaser.instance.onItemPurchased += OnItemPurchased;

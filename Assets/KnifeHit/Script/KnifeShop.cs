@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class KnifeShop : MonoBehaviour {
 	public GameObject shopUIParent;
-	public ShopItem shopKnifePrefab;
+	public ShopKnifeItem shopKnifePrefab;
 	public Transform shopPageContent;
 	public Text unlockKnifeCounterLbl;
 	public Button unlockNowBtn,unlockRandomBtn;
@@ -16,10 +16,10 @@ public class KnifeShop : MonoBehaviour {
 	public List<Knife> shopKnifeList;
 
 	public static KnifeShop intance;
-	public static ShopItem selectedItem;
+	public static ShopKnifeItem selectedItem;
 	public AudioClip onUnlocksfx,RandomUnlockSfx;
-	List<ShopItem> shopItems;
-	ShopItem  selectedShopItem
+	List<ShopKnifeItem> shopItems;
+	ShopKnifeItem  selectedShopItem
 	{
 		get
 		{ 
@@ -60,9 +60,9 @@ public class KnifeShop : MonoBehaviour {
 		unlockNowBtn.GetComponentInChildren<Text> ().text = UnlockPrice + "";
 		unlockRandomBtn.GetComponentInChildren<Text> ().text = UnlockRandomPrice + "";
 
-		shopItems = new List<ShopItem> ();
+		shopItems = new List<ShopKnifeItem> ();
 		for (int i = 0; i < shopKnifeList.Count; i++) {
-			ShopItem temp = Instantiate<ShopItem> (shopKnifePrefab, shopPageContent);
+			ShopKnifeItem temp = Instantiate<ShopKnifeItem> (shopKnifePrefab, shopPageContent);
 			temp.setup (i, this);
 			temp.name = i + "";
 			shopItems.Add (temp);
@@ -143,8 +143,8 @@ public class KnifeShop : MonoBehaviour {
 	IEnumerator UnlockRandomCoKnife()
 	{
 		unlockingRandom = true;
-		List<ShopItem> lockedItems=shopItems.FindAll((obj) => {	return !obj.KnifeUnlock; });
-		ShopItem randomSelect=null;
+		List<ShopKnifeItem> lockedItems=shopItems.FindAll((obj) => {	return !obj.KnifeUnlock; });
+		ShopKnifeItem randomSelect=null;
 		for (int i = 0; i < lockedItems.Count *2; i++) 
 		{
 			randomSelect=lockedItems[Random.Range(0,lockedItems.Count)];

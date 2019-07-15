@@ -257,7 +257,17 @@ public class GamePlayManager : MonoBehaviour
     public void SpawnBow()
     {
         GameObject tempBow;
-        tempBow = Instantiate<Bow>(bowPrefab, bowSpawnPoint.position, Quaternion.identity, bowSpawnPoint).gameObject;
+        if (GameManager.selectedKnifePrefab == null)
+        {
+            //edited KnifeSpawnPoint.position.x, KnifeSpawnPoint.position.y - 2f to KnifeSpawnPoint.position.x - 2f, KnifeSpawnPoint.position.y
+            tempBow = Instantiate<Bow>(bowPrefab, bowSpawnPoint.position, Quaternion.identity, bowSpawnPoint).gameObject;
+        }
+        else
+        {
+            //edited KnifeSpawnPoint.position.x, KnifeSpawnPoint.position.y - 2f to KnifeSpawnPoint.position.x - 2f, KnifeSpawnPoint.position.y
+            tempBow = Instantiate<Bow>(GameManager.selectedBowPrefab, bowSpawnPoint.position, Quaternion.identity, bowSpawnPoint).gameObject;
+
+        }
         float bowScale = (GameManager.ScreenHeight * bowHeightByScreen) / tempBow.GetComponent<SpriteRenderer>().bounds.size.x;
         tempBow.transform.localScale = Vector3.one * bowScale;
         currentBow = tempBow.GetComponent<Bow>();
@@ -435,10 +445,16 @@ public class GamePlayManager : MonoBehaviour
 
         CUtils.ShowInterstitialAd();
     }
-    public void OpenShop()
+    public void OpenKnifeShop()
     {
         SoundManager.instance.PlaybtnSfx();
         KnifeShop.intance.showShop();
+    }
+    //edited add whole fuction to open Bow Shop
+    public void OpenbowShop()
+    {
+        SoundManager.instance.PlaybtnSfx();
+        BowShop.intance.showShop();
     }
     public void RestartGame()
     {

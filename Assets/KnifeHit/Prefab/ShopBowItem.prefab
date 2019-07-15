@@ -36,10 +36,10 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 224145802968079172}
-  - component: {fileID: 114782800331356732}
+  - component: {fileID: 114615583635053130}
   - component: {fileID: 114601433126114076}
   m_Layer: 5
-  m_Name: ShopItem
+  m_Name: ShopBowItem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -74,7 +74,7 @@ GameObject:
   - component: {fileID: 114630919958790944}
   - component: {fileID: 114559661484516870}
   m_Layer: 5
-  m_Name: KnifeImage
+  m_Name: BowImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -229,7 +229,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 114782800331356732}
+      - m_Target: {fileID: 114615583635053130}
         m_MethodName: OnClick
         m_Mode: 1
         m_Arguments:
@@ -242,6 +242,28 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &114615583635053130
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1378337047301504}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5552600a3cf49954ea377afa3193d855, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  index: 0
+  bgImage: {fileID: 114558732959478012}
+  BowImage: {fileID: 114630919958790944}
+  selectIamge: {fileID: 1918696175542130}
+  unlockBowBGColor: {r: 0.023529412, g: 0.21960784, b: 0.21176471, a: 1}
+  lockBowBGColor: {r: 0, g: 0, b: 0, a: 1}
+  unlockBowColor: {r: 1, g: 1, b: 1, a: 1}
+  lockBowColor: {r: 0.13725491, g: 0.3019608, b: 0.4, a: 1}
+  unlockKnifesfx: {fileID: 8300000, guid: b312b1a82c744a14d8a3abcb0b27e387, type: 3}
+  lockKnifesfx: {fileID: 8300000, guid: 04a90d8f805d95e478536c0b6270df9a, type: 3}
+  confirmKnifeSfx: {fileID: 8300000, guid: 5c1d61516794c0b4181f73f898276324, type: 3}
 --- !u!114 &114630919958790944
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -269,28 +291,6 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
---- !u!114 &114782800331356732
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1378337047301504}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1509a36c4c8112b4fb741f57fe57a489, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  index: 0
-  bgImage: {fileID: 114558732959478012}
-  knifeImage: {fileID: 114630919958790944}
-  selectIamge: {fileID: 1918696175542130}
-  unlockKnifeBGColor: {r: 0.023529414, g: 0.21960786, b: 0.21176472, a: 1}
-  lockKnifeBGColor: {r: 0, g: 0, b: 0, a: 1}
-  unlockKnifeColor: {r: 1, g: 1, b: 1, a: 1}
-  lockKnifeColor: {r: 0.13725491, g: 0.3019608, b: 0.40000004, a: 1}
-  unlockKnifesfx: {fileID: 8300000, guid: b312b1a82c744a14d8a3abcb0b27e387, type: 3}
-  lockKnifesfx: {fileID: 8300000, guid: 04a90d8f805d95e478536c0b6270df9a, type: 3}
-  confirmKnifeSfx: {fileID: 8300000, guid: 5c1d61516794c0b4181f73f898276324, type: 3}
 --- !u!222 &222298287439401350
 CanvasRenderer:
   m_ObjectHideFlags: 1
