@@ -1634,7 +1634,7 @@ MonoBehaviour:
   UnlockPrice: 0
   UnlockRandomPrice: 100
   shopKnifeList:
-  - {fileID: 114628458869949704, guid: b447f14fede85b543827b2288523e029, type: 2}
+  - {fileID: 114410954112893974, guid: caa3de7abd694234ca85b62aaaf1509b, type: 2}
   - {fileID: 114410954112893974, guid: 2f0472791599fd4458293f21ed6e8b77, type: 2}
   - {fileID: 114511566512732804, guid: 076e7ff24d4b32b4a8f3b2d87bf9457e, type: 2}
   - {fileID: 114962642905741144, guid: d9641f4cb0677c74486d3c7502eb3c27, type: 2}
@@ -2070,26 +2070,26 @@ MonoBehaviour:
   UnlockPrice: 0
   UnlockRandomPrice: 100
   shopBowList:
-  - {fileID: 114181555487947542, guid: 252b625881fefd94ab914cc5ea8501e4, type: 2}
-  - {fileID: 114181555487947542, guid: 5b0718bf33164d2468c37ab8eeeb122c, type: 2}
-  - {fileID: 114181555487947542, guid: 5b0718bf33164d2468c37ab8eeeb122c, type: 2}
-  - {fileID: 114181555487947542, guid: 5b0718bf33164d2468c37ab8eeeb122c, type: 2}
-  - {fileID: 114181555487947542, guid: 5b0718bf33164d2468c37ab8eeeb122c, type: 2}
-  - {fileID: 114181555487947542, guid: 5b0718bf33164d2468c37ab8eeeb122c, type: 2}
-  - {fileID: 114181555487947542, guid: 5b0718bf33164d2468c37ab8eeeb122c, type: 2}
-  - {fileID: 114181555487947542, guid: 5b0718bf33164d2468c37ab8eeeb122c, type: 2}
-  - {fileID: 114181555487947542, guid: 5b0718bf33164d2468c37ab8eeeb122c, type: 2}
-  - {fileID: 114181555487947542, guid: 5b0718bf33164d2468c37ab8eeeb122c, type: 2}
-  - {fileID: 114181555487947542, guid: 5b0718bf33164d2468c37ab8eeeb122c, type: 2}
-  - {fileID: 114181555487947542, guid: 5b0718bf33164d2468c37ab8eeeb122c, type: 2}
-  - {fileID: 114181555487947542, guid: 5b0718bf33164d2468c37ab8eeeb122c, type: 2}
-  - {fileID: 114181555487947542, guid: 5b0718bf33164d2468c37ab8eeeb122c, type: 2}
-  - {fileID: 114181555487947542, guid: 5b0718bf33164d2468c37ab8eeeb122c, type: 2}
-  - {fileID: 114181555487947542, guid: 5b0718bf33164d2468c37ab8eeeb122c, type: 2}
-  - {fileID: 114181555487947542, guid: 5b0718bf33164d2468c37ab8eeeb122c, type: 2}
-  - {fileID: 114181555487947542, guid: 5b0718bf33164d2468c37ab8eeeb122c, type: 2}
-  - {fileID: 114181555487947542, guid: 5b0718bf33164d2468c37ab8eeeb122c, type: 2}
-  - {fileID: 114181555487947542, guid: 5b0718bf33164d2468c37ab8eeeb122c, type: 2}
+  - {fileID: 114886565782171310, guid: d7769780d60ba4a46a639f077553f025, type: 2}
+  - {fileID: 114886565782171310, guid: 8520e1324eb0a8a4a84de8c20897dd4f, type: 2}
+  - {fileID: 114886565782171310, guid: 283487e33332d3b47aea5eee2ec41d75, type: 2}
+  - {fileID: 114886565782171310, guid: 1bedbf8951ba001499825db3ab16b943, type: 2}
+  - {fileID: 114886565782171310, guid: 08041350e32bd704999e3fdab9842d17, type: 2}
+  - {fileID: 114886565782171310, guid: 86ff21818e1947f429547b79e4bb8f8e, type: 2}
+  - {fileID: 114886565782171310, guid: 1bedbf8951ba001499825db3ab16b943, type: 2}
+  - {fileID: 114886565782171310, guid: 1bedbf8951ba001499825db3ab16b943, type: 2}
+  - {fileID: 114886565782171310, guid: 1bedbf8951ba001499825db3ab16b943, type: 2}
+  - {fileID: 114886565782171310, guid: 1bedbf8951ba001499825db3ab16b943, type: 2}
+  - {fileID: 114886565782171310, guid: 1bedbf8951ba001499825db3ab16b943, type: 2}
+  - {fileID: 114886565782171310, guid: 1bedbf8951ba001499825db3ab16b943, type: 2}
+  - {fileID: 114886565782171310, guid: 1bedbf8951ba001499825db3ab16b943, type: 2}
+  - {fileID: 114886565782171310, guid: 1bedbf8951ba001499825db3ab16b943, type: 2}
+  - {fileID: 114886565782171310, guid: 1bedbf8951ba001499825db3ab16b943, type: 2}
+  - {fileID: 114886565782171310, guid: 1bedbf8951ba001499825db3ab16b943, type: 2}
+  - {fileID: 114886565782171310, guid: 1bedbf8951ba001499825db3ab16b943, type: 2}
+  - {fileID: 114886565782171310, guid: 1bedbf8951ba001499825db3ab16b943, type: 2}
+  - {fileID: 114886565782171310, guid: 1bedbf8951ba001499825db3ab16b943, type: 2}
+  - {fileID: 114886565782171310, guid: 1bedbf8951ba001499825db3ab16b943, type: 2}
   onUnlocksfx: {fileID: 8300000, guid: 0d372e25857fe8c46bb5bb5fc15d0908, type: 3}
   RandomUnlockSfx: {fileID: 8300000, guid: 24170d172d65915469a6bca71f7ea935, type: 3}
 --- !u!114 &114371128003033016
@@ -5155,7 +5155,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 14.701172, y: -14.700684}
-  m_SizeDelta: {x: 32, y: 32}
+  m_SizeDelta: {x: 50, y: 50}
   m_Pivot: {x: 0, y: 1}
 --- !u!224 &224577127240190172
 RectTransform:

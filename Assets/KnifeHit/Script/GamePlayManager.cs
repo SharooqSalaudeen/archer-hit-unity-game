@@ -68,6 +68,8 @@ public class GamePlayManager : MonoBehaviour
     Knife currentKnife;
     Bow currentBow;
     bool usedAdContinue;
+    //edited add stringReady bool
+    bool stringReady;
 
     public int totalSpawnKnife
     {
@@ -201,11 +203,17 @@ public class GamePlayManager : MonoBehaviour
         totalSpawnKnife = 0;
         StartCoroutine(GenerateKnife());
     }
+    //edited made public
     void Update()
     {
         if (currentKnife == null)
             return;
-
+        //edited add if statement to drag back arrow on hold and pull string
+        if (Input.GetMouseButtonDown(0) && !currentKnife.isFire)
+        {
+            currentKnife.DrawArrow();
+            currentBow.StringPull();
+        }
         //edited (Input.GetMouseButtonDown(0) && !currentKnife.isFire) to (Input.GetMouseButtonUp(0) && !currentKnife.isFire) to fire when released
         if (Input.GetMouseButtonUp(0) && !currentKnife.isFire)
         {  
@@ -213,13 +221,10 @@ public class GamePlayManager : MonoBehaviour
             currentKnife.ThrowKnife();
             currentBow.BowShake();
             StartCoroutine(GenerateKnife());
+            //edited add call string release/rest function
+            currentBow.StringRest();
+        }
 
-        }
-        //edited add if statement to drag back arrow on hold
-        if(Input.GetMouseButtonDown(0) && !currentKnife.isFire)
-        {
-            currentKnife.DrawArrow();
-        }
     }
     public void spawnCircle()
     {
@@ -268,7 +273,7 @@ public class GamePlayManager : MonoBehaviour
             tempBow = Instantiate<Bow>(GameManager.selectedBowPrefab, bowSpawnPoint.position, Quaternion.identity, bowSpawnPoint).gameObject;
 
         }
-        float bowScale = (GameManager.ScreenHeight * bowHeightByScreen) / tempBow.GetComponent<SpriteRenderer>().bounds.size.x;
+        float bowScale = (GameManager.ScreenHeight * bowHeightByScreen) / tempBow.GetComponent<SpriteRenderer>().bounds.size.y;
         tempBow.transform.localScale = Vector3.one * bowScale;
         currentBow = tempBow.GetComponent<Bow>();
     }

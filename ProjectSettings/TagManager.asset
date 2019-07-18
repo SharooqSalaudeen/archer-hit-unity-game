@@ -7,6 +7,7 @@ TagManager:
   - Wood
   - Knife
   - Apple
+  - OverlayDialog
   layers:
   - Default
   - TransparentFX
