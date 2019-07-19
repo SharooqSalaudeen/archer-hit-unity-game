@@ -33,6 +33,8 @@ public class MainMenu : MonoBehaviour
         CUtils.ShowInterstitialAd();
 		InvokeRepeating ("updateGiftStatus", 0f, 1f);
 		KnifeShop.intance.UpdateUI ();
+        //edited added line for bow shop updating
+        BowShop.intance.UpdateUI ();
 	}
 
 	public void OnPlayClick()
@@ -80,12 +82,17 @@ public class MainMenu : MonoBehaviour
 	{
 		giftBlackScreen.SetActive (false);
 	}
-	public void OpenShopUI()
+	public void OpenKnifeShopUI()
 	{
 		SoundManager.instance.PlaybtnSfx ();
 		KnifeShop.intance.showShop ();	
 	}
-	public void OpenSettingUI()
+    public void OpenBowShopUI()
+    {
+        SoundManager.instance.PlaybtnSfx();
+        BowShop.intance.showShop();
+    }
+    public void OpenSettingUI()
 	{
 		SoundManager.instance.PlaybtnSfx ();
 		SettingUI.intance.showUI();	
