@@ -16,6 +16,7 @@ public class MainMenu : MonoBehaviour
     //edited add selectedBowImage for Shop
     public Image selectedBowImage;
     public AudioClip giftSfx;
+    public GamePlayManager gamePlayManager;
 
 	public static MainMenu intance;
 
@@ -40,7 +41,9 @@ public class MainMenu : MonoBehaviour
 	public void OnPlayClick()
 	{
 		SoundManager.instance.PlaybtnSfx ();
-		GeneralFunction.intance.LoadSceneWithLoadingScreen ("MyGameScene");
+        //GeneralFunction.intance.LoadSceneWithLoadingScreen ("MyGameScene");
+        gamePlayManager.startGame();
+        gameObject.SetActive(false);
 	}
 	public void RateGame()
 	{
@@ -50,7 +53,7 @@ public class MainMenu : MonoBehaviour
 
 	void updateGiftStatus()
 	{
-		if (GameManager.GiftAvalible) {
+        if (GameManager.GiftAvalible) {
 			giftButton.interactable = true;
 			LeanTween.alphaCanvas (giftLableCanvasGroup, 0f, .4f).setOnComplete (() => {
 				LeanTween.alphaCanvas (giftLableCanvasGroup, 1f, .4f);
@@ -67,6 +70,8 @@ public class MainMenu : MonoBehaviour
 	public void OnGiftClick()
 	{
 		SoundManager.instance.PlaybtnSfx ();
+        //edited added next line
+        gameObject.SetActive(false);
 		int Gift = UnityEngine.Random.Range (minGiftApple, maxGiftApple);
         Toast.instance.ShowMessage("You got "+Gift+" Apples");
 		GameManager.Apple += Gift;
@@ -81,7 +86,9 @@ public class MainMenu : MonoBehaviour
 	public void HideGiftParticle()
 	{
 		giftBlackScreen.SetActive (false);
-	}
+        //edited added next line
+        gameObject.SetActive(true);
+    }
 	public void OpenKnifeShopUI()
 	{
 		SoundManager.instance.PlaybtnSfx ();

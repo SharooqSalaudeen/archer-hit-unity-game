@@ -61,4 +61,9 @@ public class Bow : MonoBehaviour {
         LeanTween.moveLocalX(gameObject, -0.4f, 0.05f).setLoopPingPong(1);
     }
 
+    public void DestroyMe()
+    {
+        Destroy(gameObject);
+    }
+
 }

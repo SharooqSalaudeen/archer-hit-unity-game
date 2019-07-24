@@ -12,7 +12,7 @@ public class SettingUI : MonoBehaviour {
     public Text removeAdPriceText;
 	public static SettingUI intance;
     //edited add reference to SoundManager
-    public SoundManager soundManager;
+    //public SoundManager soundManager;
 
     void Awake()
 	{

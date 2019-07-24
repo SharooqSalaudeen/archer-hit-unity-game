@@ -48,6 +48,11 @@ public class GamePlayManager : MonoBehaviour
     public GameObject bossFightEnd;
     public AudioClip[] bossFightStartSounds;
     public AudioClip[] bossFightEndSounds;
+
+    [Header("mainMenu")]
+    public GameObject mainMenuView;
+
+
     [Header("Ads Show")]
     public GameObject adsShowView;
     public Image adTimerImage;
@@ -69,7 +74,7 @@ public class GamePlayManager : MonoBehaviour
     Bow currentBow;
     bool usedAdContinue;
     //edited add stringReady bool
-    bool stringReady;
+    //bool stringReady;
 
     public int totalSpawnKnife
     {
@@ -96,8 +101,10 @@ public class GamePlayManager : MonoBehaviour
     }
     void Start()
     {
-        startGame();
-        CUtils.ShowInterstitialAd();
+        //edited commented next line to implement it through main menu
+        //startGame();
+        //edited commented next line for future enabling and debugging****************************************************
+        //CUtils.ShowInterstitialAd();
     }
 
     private void OnEnable()
@@ -435,6 +442,11 @@ public class GamePlayManager : MonoBehaviour
     public void showGameOverPopup()
     {
         gameOverView.SetActive(true);
+        //edited add next3 lines to destroy gameobjects for next new session to begin
+        currentCircle.destroyMeAndAllKnives();
+        currentBow.DestroyMe();
+        GameManager.isGameOver = true;
+
         gameOverSocreLbl.text = GameManager.score + "";
         gameOverStageLbl.text = "Stage " + GameManager.Stage;
 
@@ -464,14 +476,18 @@ public class GamePlayManager : MonoBehaviour
     public void RestartGame()
     {
         SoundManager.instance.PlaybtnSfx();
-        //edited Scene name to the new one
-        GeneralFunction.intance.LoadSceneByName("MyGameScene");
+        //edited Scene name to the new one //edited commment next line and added 3 lines to hide mainmenu and restart game 
+        //GeneralFunction.intance.LoadSceneByName("MyGameScene");
+        gameOverView.SetActive(false);
+        startGame();
     }
     public void BackToHome()
     {
         SoundManager.instance.PlaybtnSfx();
-        //edited Scene name to the new one
-        GeneralFunction.intance.LoadSceneByName("MyHomeScene");
+        //edited Scene name to the new one //edited again commented next line and added rest 4 lines to implement mainmenu popup and deactivate gameover view
+        //GeneralFunction.intance.LoadSceneByName("MyHomeScene");
+        mainMenuView.SetActive(true);
+        gameOverView.SetActive(false);
     }
     public void FBClick()
     {

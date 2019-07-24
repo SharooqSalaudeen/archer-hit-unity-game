@@ -11,10 +11,12 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/KnifeHit/Scene/GameScene.unity
     guid: fa0cd6ab5cb82b64b9a6c48c3913471d
-  - enabled: 1
+  - enabled: 0
     path: Assets/KnifeHit/Scene/MyHomeScene.unity
     guid: 45abaada831f6284895714df665ba481
-  - enabled: 1
+  - enabled: 0
     path: Assets/KnifeHit/Scene/MyGameScene.unity
     guid: d255330a2005abd44a04e16c682a5558
-  m_configObjects: {}
+  - enabled: 1
+    path: Assets/KnifeHit/Scene/Game.unity
+    guid: 1c2c64eb52e16b849acf14565e2eb152
