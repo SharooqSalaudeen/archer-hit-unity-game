@@ -912,7 +912,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 110532}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -435, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 22444654}
@@ -1007,7 +1007,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 140880}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -435, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 22444654}
@@ -1081,11 +1081,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   admob:
-    androidInterstitial: 
+    androidInterstitial: ca-app-pub-3940256099942544/1033173712
     iosInterstitial: 
-    androidBanner: 
+    androidBanner: ca-app-pub-3940256099942544/6300978111
     iosBanner: 
-    androidRewarded: 
+    androidRewarded: ca-app-pub-3940256099942544/5224354917
     iosRewarded: 
   adPeriod: 75
   rewardedVideoPeriod: 120

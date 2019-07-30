@@ -1,3 +1,61 @@
+## [1.22.0] - 2019-03-18
+### Added
+- Added Unity Distribution Portal (UDP) module as an Android build target. Unity Distribution Portal streamlines your distribution process. UDP allows you to only build one version of your game, centralize the management of your marketing assets and metadata, and submit your content to multiple app stores, all in the same workflow. For more details, please refer to https://docs.unity3d.com/Packages/com.unity.purchasing.udp@1.0/manual/index.html.
+- Added extension function for Apple store to expose products' sku details
+- Added support for developer to include accountId in getBuyIntentExtraParams, this data helps Google analyze fraud attempts and prevent fraudulent transactions.
+- Added GooglePlay store extension function to support restore purchases.
+- Added GooglePlay store extension function to support consume(finish transaction) a purchase manually.
+
+### Fixed
+- Fixed UWP build errors.
+- Fixed errors when initializing with two purchasing modules on WebGL & Windows Standalone.
+- Fixed not "re-importing required assets" when switching build targets with IAP.
+- Re-enabled Facebook IAP implementation for non-Gameroom Canvas apps.
+- Fixed GooglePlay store consumable products already owned error due to network issues.
+- Fixed wrong product id when cancel a subscription product purchase.
+
+## [1.20.1] - 2018-10-5
+### Added
+- Added a callback function that allows developers to check the state of the upgrade/downgrade process of subscriptions on GooglePlay.
+
+### Fixed
+- Google Daydream - Correctly Displays IAP Prompt in 3d VR version instead of native 2D. 
+- Fixed issue where IAP catalog prevented deletion of Price under Google Configuration.
+- Amazon Store - Fixed bug where Amazon store could not correctly parse currencies for certain countries.
+- MacOS - Fixed bug that causes non-consumables to auto-restore on MacOS apps after re-install, instead of requiring the the Restore button to be clicked.
+- Updated Android Response Code to return correct message whenever an activity is cancelled.
+- Fixed Mono CIL linker error causing initialization failure in Unity 5.3 
+- Fixed inefficient Apple Receipt Parser that was slowing down when a large number of transactions were parsed on auto-restore.
+
+## [1.20.0] - 2018-06-29
+### Added
+- API for developers to check SkuDetails for all GooglePlay store products, including those that have not been purchased.
+- Error Code Support for Amazon.
+- Support upgrade/downgrade Subscription Tiers for GooglePlayStore.
+- Support Subscription status check (valid/invalid) for Amazon Store. 
+
+### Changed
+- Location of Product Catalog from Assets/Plugins/UnityPurchasing/Resources folder to Assets/Resources.
+- Amazon Receipt with enriched product details and receipt details.
+
+### Fixed
+- Issue where Unknown products (including non-consumables) were consumed during initialization. 
+- ArgumentException where currency was set to null string when purchase was made.
+
+## [1.19.0] - 2018-04-17
+### Added
+- For GooglePlay store, `developerPayload` has been encoded to base64 string and formatted to a JSON string with two other information of the product. When extract `developerPayload` from the product receipt, firstly decode the json string and get the `developerPayload` field base64 string, secondly decode the base64 string to the original `developerPayload`.
+- `SubscriptionManager` - This new class allows developer to query the purchased subscription product's information. (available for AppleStore and GooglePlay store) 
+    - For GooglePlay store, this class can only be used on products purchased using IAP 1.19.0 SDK. Products purchased on previous SDKs do not have the fields in the "developerPayload" that are needed to parse the subscription information.
+        - If the "Payload" json string field in the product's json string receipt has a "skuDetails" filed, then this product can use `SubscriptionManager` to get its subscription information.
+- Added the `StoreSpecificPurchaseErrorCode` enum. Currently contains values for all Apple and Google Play error codes that are returned directly from the store.
+- Added the `ITransactionHistoryExtensions` extension. Developers can call `GetLastPurchaseFailureDescription()` and `GetLastStoreSpecificPurchaseErrorCode()` to get extended debugging/error information.
+- Codeless IAP - Adds an `Automatically initialize UnityPurchasing` checkbox to the IAP Catalog. Checking this box will cause IAP to automatically initialize on game start using the products contained in the catalog.
+
+## [1.18.0] - 2018-03-27
+### Added
+- Unity IAP E-Commerce - [Closed Beta] Supports new "managed store" functionality. Contact <iapsupport@unity3d.com> to learn more.
+
 ## [1.17.0] - 2018-02-21
 ### Added
 - Unity IAP Promo - [Beta] Supports new Unity Ads feature to advertise IAPs inside advert placements.

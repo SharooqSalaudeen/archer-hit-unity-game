@@ -103,11 +103,8 @@ MonoBehaviour:
   splashParticle: {fileID: 198276289501521494, guid: e057e4784ad6c4a4ca6257063e6175b8,
     type: 2}
   isBoss: 1
-  woodSprite: {fileID: 21300000, guid: 3e3c278ca2d931e42a98190c344aa4fc, type: 3}
-  blueWoodSprite: {fileID: 21300000, guid: 004ec6cf42e73e64ba2ed171aef53900, type: 3}
   WoodSplatParticle: {fileID: 198406193673109968, guid: 5fdd0021e40a42c49a002a50e2cca294,
     type: 2}
-  BlueWoodSplatParticle: {fileID: 0}
   isRandomClockWise: 1
   hitedKnife: []
   woodHitSfx: {fileID: 8300000, guid: 352f51fb9e3d03f4eb4311aa7b6d6bed, type: 3}

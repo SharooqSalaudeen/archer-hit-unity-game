@@ -227,7 +227,7 @@ MonoBehaviour:
   splashParticle: {fileID: 198276289501521494, guid: e057e4784ad6c4a4ca6257063e6175b8,
     type: 2}
   isBoss: 0
-  woodSprite: {fileID: 21300000, guid: 3e3c278ca2d931e42a98190c344aa4fc, type: 3}
+  woodSprite: {fileID: 21300000, guid: 246eeb9a7462c5b4582770cc9a7defa4, type: 3}
   blueWoodSprite: {fileID: 21300000, guid: 004ec6cf42e73e64ba2ed171aef53900, type: 3}
   WoodSplatParticle: {fileID: 198406193673109968, guid: 3947b6099faf3ea408a91b3625d19e9a,
     type: 2}

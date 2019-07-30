@@ -10,12 +10,14 @@ public class SoundManager : MonoBehaviour {
     int throwKnifeFID;
     int lastHitFID;
     int woodHitFID;
+    int appleHitFID;
 
     //edited audio stream reference
     int knifeHitSID;
     int throwKnifeSID;
     int lastHitSID;
     int woodHitSID;
+    int appleHitSID;
 
     public AudioSource efxSource;
 	public AudioClip btnSfx;
@@ -40,6 +42,7 @@ public class SoundManager : MonoBehaviour {
         throwKnifeFID = AndroidNativeAudio.load("ev_throw_1.mp3");
         lastHitFID = AndroidNativeAudio.load("ev_hit_last.mp3");
         woodHitFID = AndroidNativeAudio.load("ev_hit_1.mp3");
+        woodHitFID = AndroidNativeAudio.load("ev_apple_hit_1.mp3");
     }
 
 	public void PlaySingle(AudioClip clip,float vol=1f)
@@ -97,6 +100,11 @@ public class SoundManager : MonoBehaviour {
         if (GameManager.Sound)
             woodHitSID = AndroidNativeAudio.play(woodHitFID);
     }
+    public void AppleHitSFX()
+    {
+        if (GameManager.Sound)
+            appleHitSID = AndroidNativeAudio.play(appleHitFID);
+    }
 
 
     // edited Clean up when done
@@ -106,6 +114,7 @@ public class SoundManager : MonoBehaviour {
         AndroidNativeAudio.unload(throwKnifeSID);
         AndroidNativeAudio.unload(lastHitSID);
         AndroidNativeAudio.unload(woodHitSID);
+        AndroidNativeAudio.unload(appleHitSID);
         AndroidNativeAudio.releasePool();
     }
 }

@@ -13,9 +13,15 @@ public class Circle : MonoBehaviour {
 	public ParticleSystem hitParticle,splashParticle;
 	[Space(20)]
 	public bool isBoss=false;
-	public Sprite woodSprite,blueWoodSprite;
-	public ParticleSystem WoodSplatParticle,BlueWoodSplatParticle;
-	[Space(20)]
+    //edited commented next 2 lines and added the list for the same
+    //public Sprite woodSprite,blueWoodSprite;
+    //public ParticleSystem WoodSplatParticle,BlueWoodSplatParticle;
+    //public List<Sprite> WoodSprites;
+    //public List<ParticleSystem> WoodSpriteParticles;
+    int currentWoodSprite;
+    public ParticleSystem WoodSplatParticle;
+
+    [Space(20)]
 	public bool isRandomClockWise=false;
 
 	public List<Knife> hitedKnife= new List<Knife>();
@@ -26,8 +32,11 @@ public class Circle : MonoBehaviour {
 	float valueZ ;
 	void Start () {
 		if (!isBoss) {
-			GetComponent<SpriteRenderer>().sprite=GameManager.Stage%10<5?woodSprite:blueWoodSprite;
-		}
+            //edited commented next line and addes the rest of the instructions inside this if statement;
+            //GetComponent<SpriteRenderer>().sprite=GameManager.Stage%10<5?woodSprite:blueWoodSprite;
+            //currentWoodSprite = Random.Range(0, WoodSprites.Count);
+            //GetComponent<SpriteRenderer>().sprite = WoodSprites[currentWoodSprite];
+        }
 
 		if (RandomRotation.Count > 0) {
 			ApplyRotation ();
@@ -39,6 +48,15 @@ public class Circle : MonoBehaviour {
 		}
 		SpawnKnife ();
 	}
+
+    public void SetWoodSprite(ParticleSystem spriteParticle)
+    {
+        if(!isBoss)
+        {
+            WoodSplatParticle = spriteParticle;
+        }    
+    }
+
 	void ApplyRotation()
 	{
 		currentRoationIndex = (currentRoationIndex + 1) % RandomRotation.Count;
@@ -150,11 +168,14 @@ public class Circle : MonoBehaviour {
 	{
 		LeanTween.cancel (gameObject);
 		if (!isBoss) {
-			playParticle (transform.position, GameManager.Stage % 10 < 5 ? WoodSplatParticle : BlueWoodSplatParticle);
-		} else {
-			playParticle (transform.position, WoodSplatParticle);
-		}
-		gameObject.GetComponent<SpriteRenderer> ().enabled = false;
+            //edited this if statement
+            //playParticle (transform.position, GameManager.Stage % 10 < 5 ? WoodSplatParticle : BlueWoodSplatParticle);
+            playParticle(transform.position, WoodSplatParticle);
+        } else {
+            //edited this if statement
+            playParticle (transform.position, WoodSplatParticle);
+        }
+        gameObject.GetComponent<SpriteRenderer> ().enabled = false;
 		yield return new WaitForSeconds (0.02f);
 		foreach (Transform item in transform) {
 			//print (item.name);

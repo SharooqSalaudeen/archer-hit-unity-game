@@ -18,7 +18,8 @@ public class MainMenu : MonoBehaviour
     public AudioClip giftSfx;
     public GamePlayManager gamePlayManager;
 
-	public static MainMenu intance;
+
+    public static MainMenu intance;
 
 	// Gift Setting
 
@@ -33,9 +34,10 @@ public class MainMenu : MonoBehaviour
 	{
         CUtils.ShowInterstitialAd();
 		InvokeRepeating ("updateGiftStatus", 0f, 1f);
-		KnifeShop.intance.UpdateUI ();
+        //edited commented next two instructions because of no use. UpdateUI will be called on the respective button click
+        //KnifeShop.intance.UpdateUI ();
         //edited added line for bow shop updating
-        BowShop.intance.UpdateUI ();
+        //BowShop.intance.UpdateUI ();
 	}
 
 	public void OnPlayClick()

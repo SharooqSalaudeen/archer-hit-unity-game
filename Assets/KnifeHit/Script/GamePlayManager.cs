@@ -18,6 +18,12 @@ public class GamePlayManager : MonoBehaviour
     public Transform circleSpawnPoint;
     //edited circleWidthByScreen=.5f; to circleHeightByScreen=.5f;
     [Range(0f, 1f)] public float circleHeightByScreen = .5f;
+    //edited added woodSprites and woodSpriteParticles
+    public List<Sprite> WoodSprites;
+    public List<ParticleSystem> WoodSpriteParticles;
+    int currentWoodSprite;
+
+
 
     [Header("Knife Setting")]
     public Knife knifePrefab;
@@ -35,6 +41,9 @@ public class GamePlayManager : MonoBehaviour
 
     [Header("UI Object")]
     public Text lblScore;
+    //edites add StageCounter for gift screen setActive
+    public GameObject stageCounterView;
+    public GameObject scoreView;
     public Text lblStage;
     public List<Image> stageIcons;
     public Color stageIconActiveColor;
@@ -105,6 +114,7 @@ public class GamePlayManager : MonoBehaviour
         //startGame();
         //edited commented next line for future enabling and debugging****************************************************
         //CUtils.ShowInterstitialAd();
+        currentWoodSprite = Random.Range(0, WoodSprites.Count);
     }
 
     private void OnEnable()
@@ -205,6 +215,9 @@ public class GamePlayManager : MonoBehaviour
     public void setupGame()
     {
         spawnCircle();
+        //edited added next 2 lines
+        scoreView.SetActive(true);
+        stageCounterView.SetActive(true);
         KnifeCounter.intance.setUpCounter(currentCircle.totalKnife);
 
         totalSpawnKnife = 0;
@@ -242,6 +255,7 @@ public class GamePlayManager : MonoBehaviour
             tempCircle = Instantiate<Circle>(b.BossPrefab, circleSpawnPoint.position, Quaternion.identity, circleSpawnPoint).gameObject;
             currentBossName = "Boss : " + b.Bossname;
             UpdateLable();
+            currentWoodSprite = Random.Range(0, WoodSprites.Count);
             OnBossFightStart();
         }
         else
@@ -249,20 +263,26 @@ public class GamePlayManager : MonoBehaviour
             if (GameManager.Stage > 50)
             {
                 tempCircle = Instantiate<Circle>(circlePrefabs[Random.Range(11, circlePrefabs.Length - 1)], circleSpawnPoint.position, Quaternion.identity, circleSpawnPoint).gameObject;
+                //edited added lines
+                
+                tempCircle.GetComponent<SpriteRenderer>().sprite = WoodSprites[currentWoodSprite];
             }
             else
             {
                 tempCircle = Instantiate<Circle>(circlePrefabs[GameManager.Stage - 1], circleSpawnPoint.position, Quaternion.identity, circleSpawnPoint).gameObject;
+                //edited added line
+                tempCircle.GetComponent<SpriteRenderer>().sprite = WoodSprites[currentWoodSprite];
             }
         }
-
         tempCircle.transform.localScale = Vector3.one;
         //edited (GameManager.ScreenWidth * circleWidthByScreen) to (GameManager.ScreenHeight * circleHeightByScreen)
         float circleScale = (GameManager.ScreenHeight * circleHeightByScreen) / tempCircle.GetComponent<SpriteRenderer>().bounds.size.x;
         tempCircle.transform.localScale = Vector3.one * .2f;
         LeanTween.scale(tempCircle, new Vector3(circleScale, circleScale, circleScale), .3f).setEaseOutBounce();
+
         //tempCircle.transform.localScale = Vector3.one*circleScale;
         currentCircle = tempCircle.GetComponent<Circle>();
+        currentCircle.SetWoodSprite(WoodSpriteParticles[currentWoodSprite]);
     }
 
     //edited add fuction SpawnBox
@@ -442,9 +462,11 @@ public class GamePlayManager : MonoBehaviour
     public void showGameOverPopup()
     {
         gameOverView.SetActive(true);
-        //edited add next3 lines to destroy gameobjects for next new session to begin
+        //edited add next 5 lines to destroy gameobjects for next new session to begin
         currentCircle.destroyMeAndAllKnives();
         currentBow.DestroyMe();
+        scoreView.SetActive(false);
+        stageCounterView.SetActive(false);
         GameManager.isGameOver = true;
 
         gameOverSocreLbl.text = GameManager.score + "";

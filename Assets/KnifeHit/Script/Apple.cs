@@ -22,8 +22,13 @@ public class Apple : MonoBehaviour {
 	}
 	void OnTriggerEnter2D(Collider2D other) {
 		if (other.tag.Equals ("Knife")) {
-			//if (!other.gameObject.GetComponent<Knife> ().isHitted) {
-				SoundManager.instance.PlaySingle (appleHitSfx);
+            //if (!other.gameObject.GetComponent<Knife> ().isHitted) {
+            //edited add next 5 lines (4th line is original)
+#if UNITY_ANDROID && !UNITY_EDITOR
+                SoundManager.instance.AppleHitSFX();
+#else
+            SoundManager.instance.PlaySingle(appleHitSfx);
+#endif
 				GameManager.Apple++;
 				transform.parent = null;
 				GetComponent<CircleCollider2D> ().enabled = false;
