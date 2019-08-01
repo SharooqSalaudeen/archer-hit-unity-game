@@ -68,7 +68,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acd785a7c6c538f40b03ee80262639b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  totalKnife: 8
+  totalKnife: 5
   RandomRotation:
   - time: 1.2
     z: 180
@@ -116,25 +116,25 @@ MonoBehaviour:
     KnifeAngles:
     - 0
     - 120
-    - 240
   - applePosibility: 0.517
     AppleAngles:
     - 60
     - 180
     KnifeAngles:
     - 0
-    - 120
-    - 240
+    - 145
+  - applePosibility: 0.517
+    AppleAngles:
+    - 245
+    KnifeAngles:
+    - 0
+    - 300
   hitParticle: {fileID: 198314479377665406, guid: 30992170b829fed449253b05b1cddc5a,
     type: 2}
   splashParticle: {fileID: 198276289501521494, guid: e057e4784ad6c4a4ca6257063e6175b8,
     type: 2}
   isBoss: 0
-  woodSprite: {fileID: 21300000, guid: a261e96d8394a464fbc6da729366a5be, type: 3}
-  blueWoodSprite: {fileID: 21300000, guid: 004ec6cf42e73e64ba2ed171aef53900, type: 3}
   WoodSplatParticle: {fileID: 198406193673109968, guid: 3947b6099faf3ea408a91b3625d19e9a,
-    type: 2}
-  BlueWoodSplatParticle: {fileID: 198406193673109968, guid: 49ce4d85358d1f647bde5628b9f90c53,
     type: 2}
   isRandomClockWise: 1
   hitedKnife: []
