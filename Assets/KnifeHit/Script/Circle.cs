@@ -84,10 +84,10 @@ public class Circle : MonoBehaviour {
 			tempKnife.GetComponent<Knife> ().isFire = true;
 			tempKnife.GetComponents<BoxCollider2D> () [0].enabled = true;
 			tempKnife.GetComponents<BoxCollider2D> () [1].enabled = true;
-            //edited (transform, tempKnife.transform,item, 0.12f, 90f) to (transform, tempKnife.transform,item, 0f, 90f) position knifes already in circle 
-            setPosInCircle(transform, tempKnife.transform,item, 0.12f, 90f);
+            //edited (transform, tempKnife.transform,item, 0.12f, 90f) to (transform, tempKnife.transform,item, 0.1f, 90f) position knifes already in circle 
+            setPosInCircle(transform, tempKnife.transform,item, 0.07f, 90f);
             //edited Vector3 (0.65f, 0.65f, 0.65f) to Vector3 (1f, 1f, 1f)
-            tempKnife.transform.localScale = new Vector3 (0.9f, 0.9f, 0.9f);
+            tempKnife.transform.localScale = new Vector3 (1f, 1f, 1f);
         }
 	}
 	void setPosInCircle(Transform circle,Transform obj,float angle,float spaceBetweenCircleAndObject,float objAngelOffset)
@@ -143,7 +143,8 @@ public class Circle : MonoBehaviour {
                     SoundManager.instance.PlaySingle (LasthitSfx);
                 #endif                
 				}
-			} else {
+		}
+        else {
 				playParticle(GamePlayManager.instance.circleSpawnPoint.transform.position,splashParticle);
             //edited add next 5 lines (4th line is original)
             #if UNITY_ANDROID && !UNITY_EDITOR

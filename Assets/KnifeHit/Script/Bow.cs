@@ -14,10 +14,13 @@ public class Bow : MonoBehaviour {
     // position of the line renderers middle part 
     Vector3 stringPullout;
     Vector3 stringRestPosition;
+    public GameObject stringPullPoint;
 
     // Start is called before the first frame update
     void Start()
     {
+        //edited added line for tempPoint
+        stringPullPoint.transform.position = new Vector3(0f, 0f, 0f);
         stringRestPosition = new Vector3(-stringRestX, 0f, 0f);
         // setup the line renderer representing the bowstring
         bowStringLinerenderer = gameObject.AddComponent<LineRenderer>();
@@ -37,16 +40,28 @@ public class Bow : MonoBehaviour {
 
     }
 
+    void Update()
+    {
+        stringPullout = new Vector3(-stringRestX - stringPullPoint.transform.position.x, 0f, 0f);
+        bowStringLinerenderer.SetPosition(1, stringPullout);
+    }
+
+
+
     public void StringPull()
     {
-        stringPullout = new Vector3(-stringRestX - 1, 0f, 0f);
-        bowStringLinerenderer.SetPosition(1, stringPullout);
+        //adeed line
+        LeanTween.moveLocalX(stringPullPoint, 1f, 0.05f);
+
+        //stringPullout = new Vector3(-stringRestX - 1, 0f, 0f);
+        //bowStringLinerenderer.SetPosition(1, stringPullout);
     }
 
     public void StringRest()
     {
-        stringPullout = stringRestPosition;
-        bowStringLinerenderer.SetPosition(1, stringPullout);
+        LeanTween.moveLocalX(stringPullPoint, 0f, 0.05f);
+        //stringPullout = stringRestPosition;
+        //bowStringLinerenderer.SetPosition(1, stringPullout);
     }
 
     /*public void drawBowString()

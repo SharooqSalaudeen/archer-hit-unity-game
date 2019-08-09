@@ -68,241 +68,228 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acd785a7c6c538f40b03ee80262639b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  totalKnife: 9
+  totalKnife: 8
   RandomRotation:
-  - time: 1
-    z: 180
+  - time: 1.2
+    z: 120
     curve:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 2
         time: 0
         value: 0
-        inSlope: 0.088029064
-        outSlope: 0.088029064
+        inSlope: 0.005102041
+        outSlope: 0.005102041
         tangentMode: 0
       - serializedVersion: 2
         time: 0.071428575
-        value: 0.006287791
-        inSlope: 0.17550462
-        outSlope: 0.17550462
+        value: 0.00036443153
+        inSlope: 0.020408165
+        outSlope: 0.020408165
         tangentMode: 0
       - serializedVersion: 2
         time: 0.14285715
-        value: 0.02507209
-        inSlope: 0.34880215
-        outSlope: 0.34880215
+        value: 0.0029154522
+        inSlope: 0.066326536
+        outSlope: 0.066326536
         tangentMode: 0
       - serializedVersion: 2
         time: 0.21428572
-        value: 0.05611667
-        inSlope: 0.5177133
-        outSlope: 0.5177133
+        value: 0.00983965
+        inSlope: 0.14285715
+        outSlope: 0.14285715
         tangentMode: 0
       - serializedVersion: 2
         time: 0.2857143
-        value: 0.09903114
-        inSlope: 0.6801139
-        outSlope: 0.6801139
+        value: 0.023323618
+        inSlope: 0.25
+        outSlope: 0.25
         tangentMode: 0
       - serializedVersion: 2
         time: 0.35714287
-        value: 0.1532758
-        inSlope: 0.8339617
-        outSlope: 0.8339617
+        value: 0.045553938
+        inSlope: 0.3877551
+        outSlope: 0.3877551
         tangentMode: 0
       - serializedVersion: 2
         time: 0.42857143
-        value: 0.21816853
-        inSlope: 0.97732204
-        outSlope: 0.97732204
+        value: 0.0787172
+        inSlope: 0.5561225
+        outSlope: 0.5561225
         tangentMode: 0
       - serializedVersion: 2
         time: 0.5
-        value: 0.29289323
-        inSlope: 1.1083918
-        outSlope: 1.1083918
+        value: 0.125
+        inSlope: 0.75510204
+        outSlope: 0.75510204
         tangentMode: 0
       - serializedVersion: 2
         time: 0.5714286
-        value: 0.37651023
-        inSlope: 1.2255228
-        outSlope: 1.2255228
+        value: 0.18658894
+        inSlope: 0.9846939
+        outSlope: 0.9846939
         tangentMode: 0
       - serializedVersion: 2
         time: 0.64285713
-        value: 0.4679679
-        inSlope: 1.3272424
-        outSlope: 1.3272424
+        value: 0.26567054
+        inSlope: 1.2448978
+        outSlope: 1.2448978
         tangentMode: 0
       - serializedVersion: 2
         time: 0.71428573
-        value: 0.5661163
-        inSlope: 1.412271
-        outSlope: 1.412271
+        value: 0.3644315
+        inSlope: 1.5357144
+        outSlope: 1.5357144
         tangentMode: 0
       - serializedVersion: 2
         time: 0.78571427
-        value: 0.6697209
-        inSlope: 1.4795395
-        outSlope: 1.4795395
+        value: 0.48505828
+        inSlope: 1.8571429
+        outSlope: 1.8571429
         tangentMode: 0
       - serializedVersion: 2
         time: 0.85714287
-        value: 0.77747905
-        inSlope: 1.5282022
-        outSlope: 1.5282022
+        value: 0.6297376
+        inSlope: 2.2091837
+        outSlope: 2.2091837
         tangentMode: 0
       - serializedVersion: 2
         time: 0.9285714
-        value: 0.8880355
-        inSlope: 1.5576468
-        outSlope: 1.5576468
+        value: 0.8006559
+        inSlope: 2.5918367
+        outSlope: 2.5918367
         tangentMode: 0
       - serializedVersion: 2
         time: 1
         value: 1
-        inSlope: 1.5675027
-        outSlope: 1.5675027
+        inSlope: 2.7908163
+        outSlope: 2.7908163
         tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 0
-  - time: 1
-    z: 480
+  - time: 1.2
+    z: 120
     curve:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 2
         time: 0
         value: 0
-        inSlope: 1.5675026
-        outSlope: 1.5675026
+        inSlope: 2.7908163
+        outSlope: 2.7908163
         tangentMode: 0
       - serializedVersion: 2
         time: 0.071428575
-        value: 0.11196448
-        inSlope: 1.5576465
-        outSlope: 1.5576465
+        value: 0.19934404
+        inSlope: 2.5918367
+        outSlope: 2.5918367
         tangentMode: 0
       - serializedVersion: 2
         time: 0.14285715
-        value: 0.22252095
-        inSlope: 1.528202
-        outSlope: 1.528202
+        value: 0.3702624
+        inSlope: 2.2091837
+        outSlope: 2.2091837
         tangentMode: 0
       - serializedVersion: 2
         time: 0.21428572
-        value: 0.33027905
-        inSlope: 1.4795396
-        outSlope: 1.4795396
+        value: 0.5149417
+        inSlope: 1.8571429
+        outSlope: 1.8571429
         tangentMode: 0
       - serializedVersion: 2
         time: 0.2857143
-        value: 0.43388376
-        inSlope: 1.412271
-        outSlope: 1.412271
+        value: 0.63556856
+        inSlope: 1.5357144
+        outSlope: 1.5357144
         tangentMode: 0
       - serializedVersion: 2
         time: 0.35714287
-        value: 0.5320321
-        inSlope: 1.3272424
-        outSlope: 1.3272424
+        value: 0.73432946
+        inSlope: 1.2448976
+        outSlope: 1.2448976
         tangentMode: 0
       - serializedVersion: 2
         time: 0.42857143
-        value: 0.6234898
-        inSlope: 1.225523
-        outSlope: 1.225523
+        value: 0.81341106
+        inSlope: 0.9846939
+        outSlope: 0.9846939
         tangentMode: 0
       - serializedVersion: 2
         time: 0.5
-        value: 0.70710677
-        inSlope: 1.1083918
-        outSlope: 1.1083918
+        value: 0.875
+        inSlope: 0.7551023
+        outSlope: 0.7551023
         tangentMode: 0
       - serializedVersion: 2
         time: 0.5714286
-        value: 0.7818315
-        inSlope: 0.9773221
-        outSlope: 0.9773221
+        value: 0.9212828
+        inSlope: 0.55612254
+        outSlope: 0.55612254
         tangentMode: 0
       - serializedVersion: 2
         time: 0.64285713
-        value: 0.8467242
-        inSlope: 0.8339619
-        outSlope: 0.8339619
+        value: 0.9544461
+        inSlope: 0.3877551
+        outSlope: 0.3877551
         tangentMode: 0
       - serializedVersion: 2
         time: 0.71428573
-        value: 0.9009689
-        inSlope: 0.6801136
-        outSlope: 0.6801136
+        value: 0.9766764
+        inSlope: 0.24999987
+        outSlope: 0.24999987
         tangentMode: 0
       - serializedVersion: 2
         time: 0.78571427
-        value: 0.9438833
-        inSlope: 0.517713
-        outSlope: 0.517713
+        value: 0.99016035
+        inSlope: 0.1428571
+        outSlope: 0.1428571
         tangentMode: 0
       - serializedVersion: 2
         time: 0.85714287
-        value: 0.9749279
-        inSlope: 0.3488022
-        outSlope: 0.3488022
+        value: 0.99708456
+        inSlope: 0.06632661
+        outSlope: 0.06632661
         tangentMode: 0
       - serializedVersion: 2
         time: 0.9285714
-        value: 0.9937122
-        inSlope: 0.17550473
-        outSlope: 0.17550473
+        value: 0.9996356
+        inSlope: 0.020408101
+        outSlope: 0.020408101
         tangentMode: 0
       - serializedVersion: 2
         time: 1
         value: 1
-        inSlope: 0.088029355
-        outSlope: 0.088029355
+        inSlope: 0.0051019173
+        outSlope: 0.0051019173
         tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 0
   RandomLevels:
+  - applePosibility: 0.5
+    AppleAngles:
+    - 90
+    KnifeAngles:
+    - 0
+    - 180
   - applePosibility: 0.452
     AppleAngles:
-    - 30
+    - 0
     - 90
     - 180
     - 270
-    - 330
     KnifeAngles:
-    - 0
-    - 120
-    - 240
-  - applePosibility: 0.1
-    AppleAngles:
-    - 270
-    KnifeAngles:
-    - 0
     - 45
-    - 180
-    - 225
-  - applePosibility: 0.1
+  - applePosibility: 0.452
     AppleAngles:
-    - 45
-    - 90
-    - 135
-    KnifeAngles:
-    - 0
-    - 180
-    - 270
-  - applePosibility: 0.1
-    AppleAngles:
-    - 180
-    KnifeAngles:
     - 45
     - 135
     - 225
     - 315
+    KnifeAngles:
+    - 0
+    - 180
   hitParticle: {fileID: 198314479377665406, guid: 30992170b829fed449253b05b1cddc5a,
     type: 2}
   splashParticle: {fileID: 198276289501521494, guid: e057e4784ad6c4a4ca6257063e6175b8,

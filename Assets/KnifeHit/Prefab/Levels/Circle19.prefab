@@ -68,7 +68,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acd785a7c6c538f40b03ee80262639b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  totalKnife: 11
+  totalKnife: 10
   RandomRotation:
   - time: 1.2
     z: 180

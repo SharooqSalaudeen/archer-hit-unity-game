@@ -61,18 +61,30 @@ public class ShopBowItem : MonoBehaviour
         if (BowUnlock && selected)
         {
             shopRef.shopUIParent.SetActive(false);
+#if UNITY_ANDROID && !UNITY_EDITOR
+                SoundManager.instance.ConfirmKnifeSFX();
+#else
             SoundManager.instance.PlaySingle(confirmKnifeSfx);
+#endif
         }
         if (!selected)
         {
             selected = true;
             if (!BowUnlock)
+#if UNITY_ANDROID && !UNITY_EDITOR
+                SoundManager.instance.LockKnifeSFX();
+#else
                 SoundManager.instance.PlaySingle(lockKnifesfx);
+#endif
         }
         if (BowUnlock)
         {
             GameManager.SelectedBowIndex = index;
+#if UNITY_ANDROID && !UNITY_EDITOR
+                SoundManager.instance.UnlockKnifeSFX();
+#else
             SoundManager.instance.PlaySingle(unlockKnifesfx);
+#endif
         }
         shopRef.UpdateUI();
 

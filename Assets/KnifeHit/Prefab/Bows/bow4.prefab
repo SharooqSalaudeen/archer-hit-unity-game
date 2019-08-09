@@ -76,6 +76,8 @@ MonoBehaviour:
   stringRestX: 0.7
   stringRestTop: 1.8
   stringRestBottom: 1.9
+  stringPullPoint: {fileID: 1410416533425990, guid: 8a804a832b03d3246a36236ad3e826fc,
+    type: 2}
 --- !u!212 &212924329959882396
 SpriteRenderer:
   m_ObjectHideFlags: 1

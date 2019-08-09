@@ -76,6 +76,8 @@ MonoBehaviour:
   stringRestX: 0.7
   stringRestTop: 3.2
   stringRestBottom: 3.3
+  stringPullPoint: {fileID: 1410416533425990, guid: 8a804a832b03d3246a36236ad3e826fc,
+    type: 2}
 --- !u!212 &212924329959882396
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -115,7 +117,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1.51, y: 7.29}
+  m_Size: {x: 1.75, y: 7.52}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1

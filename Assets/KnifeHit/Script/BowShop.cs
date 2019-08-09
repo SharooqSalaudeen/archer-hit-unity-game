@@ -124,7 +124,11 @@ public class BowShop : MonoBehaviour
         selectedShopItem.UpdateUIColor();
         GameManager.SelectedBowIndex = selectedShopItem.index;
         UpdateUI();
+#if UNITY_ANDROID && !UNITY_EDITOR
+                SoundManager.instance.OnUnlockSFX();
+#else
         SoundManager.instance.PlaySingle(onUnlocksfx);
+#endif
 
     }
     bool unlockingRandom = false;
@@ -155,7 +159,11 @@ public class BowShop : MonoBehaviour
             if (!randomSelect.selected)
             {
                 randomSelect.selected = true;
+#if UNITY_ANDROID && !UNITY_EDITOR
+                SoundManager.instance.RandomUnlockSFX();
+#else
                 SoundManager.instance.PlaySingle(RandomUnlockSfx);
+#endif
             }
             yield return new WaitForSeconds(.2f);
         }
@@ -166,7 +174,11 @@ public class BowShop : MonoBehaviour
         GameManager.SelectedBowIndex = randomSelect.index;
         UpdateUI();
         unlockingRandom = false;
+#if UNITY_ANDROID && !UNITY_EDITOR
+                SoundManager.instance.OnUnlockSFX();
+#else
         SoundManager.instance.PlaySingle(onUnlocksfx);
+#endif
 
     }
 }

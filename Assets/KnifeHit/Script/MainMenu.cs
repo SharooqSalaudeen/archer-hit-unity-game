@@ -37,7 +37,7 @@ public class MainMenu : MonoBehaviour
         //edited commented next two instructions because of no use. UpdateUI will be called on the respective button click
         //KnifeShop.intance.UpdateUI ();
         //edited added line for bow shop updating
-        //BowShop.intance.UpdateUI ();
+        BowShop.intance.UpdateUI ();
 	}
 
 	public void OnPlayClick()

@@ -121,10 +121,14 @@ public class KnifeShop : MonoBehaviour {
 		selectedShopItem.UpdateUIColor ();
 		GameManager.SelectedKnifeIndex = selectedShopItem.index;
 		UpdateUI ();
-		SoundManager.instance.PlaySingle (onUnlocksfx);
+#if UNITY_ANDROID && !UNITY_EDITOR
+                SoundManager.instance.OnUnlockSFX();
+#else
+        SoundManager.instance.PlaySingle(onUnlocksfx);
+#endif
 
-	}
-	bool unlockingRandom=false;
+    }
+    bool unlockingRandom=false;
 	public void UnlockRandomKnife()
 	{
 		if (GameManager.Apple < UnlockRandomPrice) 
@@ -151,9 +155,13 @@ public class KnifeShop : MonoBehaviour {
 
 			if (!randomSelect.selected) {
 				randomSelect.selected = true;
-				SoundManager.instance.PlaySingle (RandomUnlockSfx);
-			}
-			yield return new WaitForSeconds (.2f);
+#if UNITY_ANDROID && !UNITY_EDITOR
+                SoundManager.instance.RandomUnlockSFX();
+#else
+                SoundManager.instance.PlaySingle(RandomUnlockSfx);
+#endif
+            }
+            yield return new WaitForSeconds (.2f);
 		}
 
 		GameManager.Apple -= UnlockRandomPrice;
@@ -162,7 +170,10 @@ public class KnifeShop : MonoBehaviour {
 		GameManager.SelectedKnifeIndex = randomSelect.index;
 		UpdateUI ();
 		unlockingRandom = false;
-		SoundManager.instance.PlaySingle (onUnlocksfx);
-
-	}
+#if UNITY_ANDROID && !UNITY_EDITOR
+                SoundManager.instance.OnUnlockSFX();
+#else
+        SoundManager.instance.PlaySingle(onUnlocksfx);
+#endif
+    }
 }

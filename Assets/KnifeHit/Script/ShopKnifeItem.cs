@@ -58,17 +58,29 @@ public class ShopKnifeItem : MonoBehaviour {
 	{
 		if (KnifeUnlock && selected) {
 			shopRef.shopUIParent.SetActive (false);
-				SoundManager.instance.PlaySingle (confirmKnifeSfx);
+#if UNITY_ANDROID && !UNITY_EDITOR
+                SoundManager.instance.ConfirmKnifeSFX();
+#else
+            SoundManager.instance.PlaySingle(confirmKnifeSfx);
+#endif
 		}
 		if (!selected) {
 			selected = true;
 			if(!KnifeUnlock )
-				SoundManager.instance.PlaySingle (lockKnifesfx);
+#if UNITY_ANDROID && !UNITY_EDITOR
+                SoundManager.instance.LockKnifeSFX();
+#else
+                SoundManager.instance.PlaySingle(lockKnifesfx);
+#endif
 		} 
 		if (KnifeUnlock) 
 		{
 			GameManager.SelectedKnifeIndex = index;
-			SoundManager.instance.PlaySingle (unlockKnifesfx);
+#if UNITY_ANDROID && !UNITY_EDITOR
+                SoundManager.instance.UnlockKnifeSFX();
+#else
+            SoundManager.instance.PlaySingle(unlockKnifesfx);
+#endif
 		}
 		shopRef.UpdateUI ();
 

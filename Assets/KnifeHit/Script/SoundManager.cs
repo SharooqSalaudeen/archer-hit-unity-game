@@ -11,6 +11,11 @@ public class SoundManager : MonoBehaviour {
     int lastHitFID;
     int woodHitFID;
     int appleHitFID;
+    int onUnlockFID;
+    int randomUnlockFID;
+    int confirmKnifeFID;
+    int lockKnifeFID;
+    int unlockKnifeFID;
 
     //edited audio stream reference
     int knifeHitSID;
@@ -18,6 +23,11 @@ public class SoundManager : MonoBehaviour {
     int lastHitSID;
     int woodHitSID;
     int appleHitSID;
+    int onUnlockSID;
+    int randomUnlockSID;
+    int confirmKnifeSID;
+    int lockKnifeSID;
+    int unlockKnifeSID;
 
     public AudioSource efxSource;
 	public AudioClip btnSfx;
@@ -42,7 +52,12 @@ public class SoundManager : MonoBehaviour {
         throwKnifeFID = AndroidNativeAudio.load("ev_throw_1.mp3");
         lastHitFID = AndroidNativeAudio.load("ev_hit_last.mp3");
         woodHitFID = AndroidNativeAudio.load("ev_hit_1.mp3");
-        woodHitFID = AndroidNativeAudio.load("ev_apple_hit_1.mp3");
+        appleHitFID = AndroidNativeAudio.load("ev_apple_hit_1.mp3");
+        onUnlockFID = AndroidNativeAudio.load("ev_shop_random_unlock.mp3");
+        randomUnlockFID = AndroidNativeAudio.load("ev_shop_random_beep.mp3");
+        confirmKnifeFID = AndroidNativeAudio.load("ev_shop_select_item_confirm.mp3");
+        lockKnifeFID = AndroidNativeAudio.load("ev_shop_select_locked_item.mp3");
+        unlockKnifeFID = AndroidNativeAudio.load("ev_shop_select_item.mp3");
     }
 
 	public void PlaySingle(AudioClip clip,float vol=1f)
@@ -105,6 +120,31 @@ public class SoundManager : MonoBehaviour {
         if (GameManager.Sound)
             appleHitSID = AndroidNativeAudio.play(appleHitFID);
     }
+    public void OnUnlockSFX()
+    {
+        if (GameManager.Sound)
+            onUnlockSID = AndroidNativeAudio.play(onUnlockFID);
+    }
+    public void RandomUnlockSFX()
+    {
+        if (GameManager.Sound)
+            randomUnlockSID = AndroidNativeAudio.play(randomUnlockFID);
+    }
+    public void ConfirmKnifeSFX()
+    {
+        if (GameManager.Sound)
+            confirmKnifeSID = AndroidNativeAudio.play(confirmKnifeFID);
+    }
+    public void LockKnifeSFX()
+    {
+        if (GameManager.Sound)
+            lockKnifeSID = AndroidNativeAudio.play(lockKnifeFID);
+    }
+    public void UnlockKnifeSFX()
+    {
+        if (GameManager.Sound)
+            unlockKnifeSID = AndroidNativeAudio.play(unlockKnifeFID);
+    }
 
 
     // edited Clean up when done
@@ -115,6 +155,11 @@ public class SoundManager : MonoBehaviour {
         AndroidNativeAudio.unload(lastHitSID);
         AndroidNativeAudio.unload(woodHitSID);
         AndroidNativeAudio.unload(appleHitSID);
+        AndroidNativeAudio.unload(onUnlockSID);
+        AndroidNativeAudio.unload(randomUnlockSID);
+        AndroidNativeAudio.unload(confirmKnifeSID);
+        AndroidNativeAudio.unload(lockKnifeSID);
+        AndroidNativeAudio.unload(unlockKnifeSID);
         AndroidNativeAudio.releasePool();
     }
 }

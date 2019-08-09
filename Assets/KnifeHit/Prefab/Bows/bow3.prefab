@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 114886565782171310}
   - component: {fileID: 50184956757404036}
   m_Layer: 0
-  m_Name: bow4
+  m_Name: bow3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -76,6 +76,8 @@ MonoBehaviour:
   stringRestX: 0.7
   stringRestTop: 3.4
   stringRestBottom: 3.5
+  stringPullPoint: {fileID: 1410416533425990, guid: 8a804a832b03d3246a36236ad3e826fc,
+    type: 2}
 --- !u!212 &212924329959882396
 SpriteRenderer:
   m_ObjectHideFlags: 1

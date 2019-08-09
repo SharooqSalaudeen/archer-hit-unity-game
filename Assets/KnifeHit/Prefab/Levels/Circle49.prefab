@@ -71,7 +71,7 @@ MonoBehaviour:
   totalKnife: 12
   RandomRotation:
   - time: 1.2
-    z: 480
+    z: 120
     curve:
       serializedVersion: 2
       m_Curve:
@@ -169,7 +169,7 @@ MonoBehaviour:
       m_PostInfinity: 2
       m_RotationOrder: 0
   - time: 1.2
-    z: 480
+    z: 120
     curve:
       serializedVersion: 2
       m_Curve:
