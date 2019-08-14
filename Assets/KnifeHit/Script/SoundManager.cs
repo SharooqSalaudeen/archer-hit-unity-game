@@ -16,6 +16,8 @@ public class SoundManager : MonoBehaviour {
     int confirmKnifeFID;
     int lockKnifeFID;
     int unlockKnifeFID;
+    int bossFightStartFID;
+    int bossFightEndFID;
 
     //edited audio stream reference
     int knifeHitSID;
@@ -28,6 +30,8 @@ public class SoundManager : MonoBehaviour {
     int confirmKnifeSID;
     int lockKnifeSID;
     int unlockKnifeSID;
+    int bossFightStartSID;
+    int bossFightEndSID;
 
     public AudioSource efxSource;
 	public AudioClip btnSfx;
@@ -58,6 +62,8 @@ public class SoundManager : MonoBehaviour {
         confirmKnifeFID = AndroidNativeAudio.load("ev_shop_select_item_confirm.mp3");
         lockKnifeFID = AndroidNativeAudio.load("ev_shop_select_locked_item.mp3");
         unlockKnifeFID = AndroidNativeAudio.load("ev_shop_select_item.mp3");
+        bossFightStartFID = AndroidNativeAudio.load("Quick_Impact_01.mp3");
+        bossFightEndFID = AndroidNativeAudio.load("Slam_Slice_Fast_01.mp3");
     }
 
 	public void PlaySingle(AudioClip clip,float vol=1f)
@@ -145,6 +151,16 @@ public class SoundManager : MonoBehaviour {
         if (GameManager.Sound)
             unlockKnifeSID = AndroidNativeAudio.play(unlockKnifeFID);
     }
+    public void BossFightStartSFX()
+    {
+        if (GameManager.Sound)
+            bossFightStartSID = AndroidNativeAudio.play(bossFightStartFID);
+    }
+    public void BossFightEndSFX()
+    {
+        if (GameManager.Sound)
+            bossFightEndSID = AndroidNativeAudio.play(bossFightEndFID);
+    }
 
 
     // edited Clean up when done
@@ -160,6 +176,8 @@ public class SoundManager : MonoBehaviour {
         AndroidNativeAudio.unload(confirmKnifeSID);
         AndroidNativeAudio.unload(lockKnifeSID);
         AndroidNativeAudio.unload(unlockKnifeSID);
+        AndroidNativeAudio.unload(bossFightStartSID);
+        AndroidNativeAudio.unload(bossFightEndSID);
         AndroidNativeAudio.releasePool();
     }
 }

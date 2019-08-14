@@ -308,7 +308,12 @@ public class GamePlayManager : MonoBehaviour
     public IEnumerator OnBossFightStart()
     {
         bossFightStart.SetActive(true);
+        //edited add next 5 lines (4th line is original)
+#if UNITY_ANDROID && !UNITY_EDITOR
+                    SoundManager.instance.BossFightStartSFX();
+#else
         SoundManager.instance.PlaySingle(bossFightStartSounds[Random.Range(0, bossFightEndSounds.Length - 1)], 1f);
+#endif
         yield return new WaitForSeconds(2f);
         bossFightStart.SetActive(false);
         setupGame();
@@ -317,7 +322,12 @@ public class GamePlayManager : MonoBehaviour
     public IEnumerator OnBossFightEnd()
     {
         bossFightEnd.SetActive(true);
+        //edited add next 5 lines (4th line is original)
+#if UNITY_ANDROID && !UNITY_EDITOR
+                    SoundManager.instance.BossFightEndSFX();
+#else
         SoundManager.instance.PlaySingle(bossFightEndSounds[Random.Range(0, bossFightEndSounds.Length - 1)], 1f);
+#endif
         yield return new WaitForSeconds(2f);
         bossFightEnd.SetActive(false);
         setupGame();

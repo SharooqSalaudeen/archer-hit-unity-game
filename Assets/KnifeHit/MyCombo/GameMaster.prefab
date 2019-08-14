@@ -1081,11 +1081,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   admob:
-    androidInterstitial: ca-app-pub-3940256099942544/1033173712
+    androidInterstitial: 
     iosInterstitial: 
     androidBanner: 
     iosBanner: 
-    androidRewarded: ca-app-pub-3940256099942544/5224354917
+    androidRewarded: 
     iosRewarded: 
   adPeriod: 75
   rewardedVideoPeriod: 120

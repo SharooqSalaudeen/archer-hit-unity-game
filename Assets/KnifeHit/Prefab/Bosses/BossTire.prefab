@@ -285,7 +285,7 @@ MonoBehaviour:
   splashParticle: {fileID: 198276289501521494, guid: e057e4784ad6c4a4ca6257063e6175b8,
     type: 2}
   isBoss: 1
-  WoodSplatParticle: {fileID: 198406193673109968, guid: ab7e9af6fdf7fae43bc2500910878639,
+  WoodSplatParticle: {fileID: 198406193673109968, guid: 1d1899494df6c3b41a4df566de1fb785,
     type: 2}
   isRandomClockWise: 1
   hitedKnife: []
@@ -325,7 +325,7 @@ SpriteRenderer:
   m_SortingLayerID: -1783213133
   m_SortingLayer: 3
   m_SortingOrder: 5
-  m_Sprite: {fileID: 21300000, guid: 86bd26e8975aa454691388a4a15394dc, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c5b7a0ae13752f24795a00ee941595fe, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

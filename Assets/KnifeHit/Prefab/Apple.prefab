@@ -6574,7 +6574,7 @@ ParticleSystemRenderer:
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
   m_Materials:
-  - {fileID: 2100000, guid: 7d6f83e9e927f29449b522084b287564, type: 2}
+  - {fileID: 2100000, guid: a758cd1a7d033af4d841f3d22023c8d2, type: 2}
   - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -6701,12 +6701,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 2fd1f147c61f61a4a8b869f17511a132, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 52136ced1ff38eb4d9fa9552e878c99d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.64, y: 0.64}
+  m_Size: {x: 0.58181816, y: 0.58181816}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1

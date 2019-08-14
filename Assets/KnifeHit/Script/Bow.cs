@@ -19,8 +19,6 @@ public class Bow : MonoBehaviour {
     // Start is called before the first frame update
     void Start()
     {
-        //edited added line for tempPoint
-        stringPullPoint.transform.position = new Vector3(0f, 0f, 0f);
         stringRestPosition = new Vector3(-stringRestX, 0f, 0f);
         // setup the line renderer representing the bowstring
         bowStringLinerenderer = gameObject.AddComponent<LineRenderer>();
@@ -36,6 +34,8 @@ public class Bow : MonoBehaviour {
         bowStringLinerenderer.SetPosition(0, bowStringPosition[0]);
         bowStringLinerenderer.SetPosition(1, bowStringPosition[1]);
         bowStringLinerenderer.SetPosition(2, bowStringPosition[2]);
+        //edited added line for tempPoint
+        stringPullPoint.transform.position = new Vector3(0f, 0f, 0f);
 
 
     }
