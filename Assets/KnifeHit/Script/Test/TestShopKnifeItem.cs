@@ -54,7 +54,7 @@ public class TestShopKnifeItem : MonoBehaviour {
 		shopRef=shop;
 		index = i;
         //edited list name
-		knifeRef = shop.shopKnifeList [index];
+		knifeRef = shop.shopKnifeAppleList [index];
 		knifeImage.sprite = knifeRef.GetComponent<SpriteRenderer> ().sprite;
 		UpdateUIColor ();
 	}
@@ -63,7 +63,7 @@ public class TestShopKnifeItem : MonoBehaviour {
         shopRef = shop;
         index = i;
         //edited list name
-        knifeRef = shop.shopKnifeList[index];
+        knifeRef = shop.shopKnifeWatchList[index];
         knifeImage.sprite = knifeRef.GetComponent<SpriteRenderer>().sprite;
         UpdateUIColor();
     }
@@ -72,7 +72,7 @@ public class TestShopKnifeItem : MonoBehaviour {
         shopRef = shop;
         index = i;
         //edited list name
-        knifeRef = shop.shopKnifeList[index];
+        knifeRef = shop.shopKnifeBuyList[index];
         knifeImage.sprite = knifeRef.GetComponent<SpriteRenderer>().sprite;
         UpdateUIColor();
     }
