@@ -34,8 +34,8 @@ public class MainMenu : MonoBehaviour
 	{
         CUtils.ShowInterstitialAd();
 		InvokeRepeating ("updateGiftStatus", 0f, 1f);
-        //edited commented next two instructions because of no use. UpdateUI will be called on the respective button click
-        KnifeShop.intance.UpdateUI ();
+        //edited commented next two instructions because of no use. UpdateUI will be called on the respective button click and KnifeShop to TestKnifeShop revert in future
+        TestKnifeShop.intance.UpdateUI ();
         //edited added line for bow shop updating
         BowShop.intance.UpdateUI ();
 	}
@@ -94,8 +94,9 @@ public class MainMenu : MonoBehaviour
 	public void OpenKnifeShopUI()
 	{
 		SoundManager.instance.PlaybtnSfx ();
-		KnifeShop.intance.showShop ();	
-	}
+        //KnifeShop to TestKnifeShop revert in future
+        TestKnifeShop.intance.showShop ();	
+    }
     public void OpenBowShopUI()
     {
         SoundManager.instance.PlaybtnSfx();
