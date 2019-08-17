@@ -1085,7 +1085,7 @@ MonoBehaviour:
     iosInterstitial: 
     androidBanner: 
     iosBanner: 
-    androidRewarded: 
+    androidRewarded: ca-app-pub-3940256099942544/5224354917
     iosRewarded: 
   adPeriod: 75
   rewardedVideoPeriod: 120

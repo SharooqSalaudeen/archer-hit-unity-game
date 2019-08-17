@@ -13,16 +13,16 @@ public class TestKnifeShop : MonoBehaviour
     public Transform shopPageBuyContent;
 
     public Text unlockKnifeCounterLbl;
-    public Button unlockNowBtn, unlockRandomBtn;
+    public Button unlockBtnApple, unlockBtnWatchAds, unlockRandomBtn;
     public Image selectedKnifeImageUnlock;
     public Image selectedKnifeImageLock;
     public GameObject knifeBackeffect1, knifeBackeffect2;
-    public int UnlockPrice = 250, UnlockRandomPrice = 250;
+    public int UnlockPrice = 250, UnlockRandomPrice = 250, UnlockAdsAmount = 4;
     //edited 3 lines
-    public List<Knife> shopKnifeAppleList;
-    public List<Knife> shopKnifeWatchList;
-    public List<Knife> shopKnifeBuyList;
-
+    //public List<Knife> shopKnifeAppleList;
+    //public List<Knife> shopKnifeWatchList;
+    //public List<Knife> shopKnifeBuyList;
+    public List<Knife> shopKnifeList;
     public static TestKnifeShop intance;
     public static TestShopKnifeItem selectedItem;
     public AudioClip onUnlocksfx, RandomUnlockSfx;
@@ -40,10 +40,10 @@ public class TestKnifeShop : MonoBehaviour
         {
             intance = this;
             //edited SetupShop() to AetupAppleShop() and addes 2 lines
-            SetupAppleShop();
-            SetupWatchShop();
-            SetupBuyShop();
-            //SetupShop();
+            //SetupAppleShop();
+            //SetupWatchShop();
+            //SetupBuyShop();
+            SetupShop();
         }
     }
     [ContextMenu("Clear PlayerPref")]
@@ -68,15 +68,59 @@ public class TestKnifeShop : MonoBehaviour
 
         CUtils.ShowInterstitialAd();
     }
-    /*
+    
     void SetupShop()
+    {
+        unlockBtnApple.GetComponentInChildren<Text>().text = UnlockPrice + "";
+        unlockBtnWatchAds.GetComponentInChildren<Text>().text = UnlockAdsAmount + "";
+        unlockRandomBtn.GetComponentInChildren<Text>().text = UnlockRandomPrice + "";
+
+        shopItems = new List<TestShopKnifeItem>();
+        //edited list name
+        //for (int i = 0; i < shopKnifeAppleList.Count; i++)
+        for (int i = 0; i < 10; i++)
+        {
+            //edited name
+            TestShopKnifeItem temp = Instantiate<TestShopKnifeItem>(shopKnifePrefab, shopPageAppleContent);
+            temp.setup(i, this);
+            temp.name = i + "";
+            temp.itemType = "apple";
+            shopItems.Add(temp);
+        }
+        //for (int i = 0; i < shopKnifeWatchList.Count; i++)
+        for (int i = 10; i < 20; i++)
+        {
+            //edited name
+            TestShopKnifeItem temp = Instantiate<TestShopKnifeItem>(shopKnifePrefab, shopPageWatchContent);
+            temp.setup(i, this);
+            temp.name = i + "";
+            temp.itemType = "ads";
+            //temp.adsAmount = UnlockAdsAmount;
+            temp.adsLeft = UnlockAdsAmount;
+            shopItems.Add(temp);
+        }
+        //for (int i = 0; i < shopKnifeBuyList.Count; i++)
+        /*for (int i = 20; i < 25; i++)
+        {
+            //edited name
+            TestShopKnifeItem temp = Instantiate<TestShopKnifeItem>(shopKnifePrefab, shopPageBuyContent);
+            temp.setupBuy(i, this);
+            temp.name = i + "";
+            shopItems.Add(temp);
+        }
+        */
+        shopItems[GameManager.SelectedKnifeIndex].OnClick();
+    }
+    /*
+    void SetupAppleShop()
     {
         unlockNowBtn.GetComponentInChildren<Text>().text = UnlockPrice + "";
         unlockRandomBtn.GetComponentInChildren<Text>().text = UnlockRandomPrice + "";
 
         shopItems = new List<TestShopKnifeItem>();
         //edited list name
-        for (int i = 0; i < shopKnifeAppleList.Count; i++)
+        //for (int i = 0; i < shopKnifeList.Count; i++)
+        for (int i = 0; i < 10; i++)
         {
             //edited name
             TestShopKnifeItem temp = Instantiate<TestShopKnifeItem>(shopKnifePrefab, shopPageAppleContent);
@@ -84,7 +128,17 @@ public class TestKnifeShop : MonoBehaviour
             temp.name = i + "";
             shopItems.Add(temp);
         }
-        for (int i = 0; i < shopKnifeWatchList.Count; i++)
+        shopItems[GameManager.SelectedKnifeIndex].OnClick();
+    }
+    void SetupWatchShop()
+    {
+        unlockNowBtn.GetComponentInChildren<Text>().text = UnlockPrice + "";
+        unlockRandomBtn.GetComponentInChildren<Text>().text = UnlockRandomPrice + "";
+
+        shopItems = new List<TestShopKnifeItem>();
+        //edited list name
+        //for (int i = 0; i < shopKnifeList.Count; i++)\
+        for (int i = 5; i < 15; i++)
         {
             //edited name
             TestShopKnifeItem temp = Instantiate<TestShopKnifeItem>(shopKnifePrefab, shopPageWatchContent);
@@ -92,7 +146,18 @@ public class TestKnifeShop : MonoBehaviour
             temp.name = i + "";
             shopItems.Add(temp);
         }
-        for (int i = 0; i < shopKnifeBuyList.Count; i++)
+        shopItems[GameManager.SelectedKnifeIndex].OnClick();
+    }
+    */
+    /*
+    void SetupBuyShop()
+    {
+        unlockNowBtn.GetComponentInChildren<Text>().text = UnlockPrice + "";
+        unlockRandomBtn.GetComponentInChildren<Text>().text = UnlockRandomPrice + "";
+
+        shopItems = new List<TestShopKnifeItem>();
+        //edited list name
+        for (int i = 0; i < shopKnifeList.Count; i++)
         {
             //edited name
             TestShopKnifeItem temp = Instantiate<TestShopKnifeItem>(shopKnifePrefab, shopPageBuyContent);
@@ -102,60 +167,8 @@ public class TestKnifeShop : MonoBehaviour
         }
         shopItems[GameManager.SelectedKnifeIndex].OnClick();
     }*/
-    /    void SetupAppleShop()
-        {
-            unlockNowBtn.GetComponentInChildren<Text>().text = UnlockPrice + "";
-            unlockRandomBtn.GetComponentInChildren<Text>().text = UnlockRandomPrice + "";
 
-            shopItems = new List<TestShopKnifeItem>();
-            //edited list name
-            for (int i = 0; i < shopKnifeAppleList.Count; i++)
-            {
-                //edited name
-                TestShopKnifeItem temp = Instantiate<TestShopKnifeItem>(shopKnifePrefab, shopPageAppleContent);
-                temp.setupApple(i, this);
-                temp.name = i + "";
-                shopItems.Add(temp);
-            }
-            shopItems[GameManager.SelectedKnifeIndex].OnClick();
-        }
-        void SetupWatchShop()
-        {
-            unlockNowBtn.GetComponentInChildren<Text>().text = UnlockPrice + "";
-            unlockRandomBtn.GetComponentInChildren<Text>().text = UnlockRandomPrice + "";
 
-            shopItems = new List<TestShopKnifeItem>();
-            //edited list name
-            for (int i = 0; i < shopKnifeWatchList.Count; i++)
-            {
-                //edited name
-                TestShopKnifeItem temp = Instantiate<TestShopKnifeItem>(shopKnifePrefab, shopPageWatchContent);
-                temp.setupWatch(i, this);
-                temp.name = i + "";
-                shopItems.Add(temp);
-            }
-            shopItems[GameManager.SelectedKnifeIndex].OnClick();
-        }
-
-        void SetupBuyShop()
-        {
-            unlockNowBtn.GetComponentInChildren<Text>().text = UnlockPrice + "";
-            unlockRandomBtn.GetComponentInChildren<Text>().text = UnlockRandomPrice + "";
-
-            shopItems = new List<TestShopKnifeItem>();
-            //edited list name
-            for (int i = 0; i < shopKnifeBuyList.Count; i++)
-            {
-                //edited name
-                TestShopKnifeItem temp = Instantiate<TestShopKnifeItem>(shopKnifePrefab, shopPageBuyContent);
-                temp.setupBuy(i, this);
-                temp.name = i + "";
-                shopItems.Add(temp);
-            }
-            shopItems[GameManager.SelectedKnifeIndex].OnClick();
-        }
-
-        */
     public void UpdateUI()
     {
         selectedKnifeImageUnlock.sprite = selectedShopItem.knifeImage.sprite;
@@ -169,21 +182,22 @@ public class TestKnifeShop : MonoBehaviour
         int unlockCount = 0;
         if (shopItems.FindAll((obj) => { return obj.KnifeUnlock; }) != null)
         {
-            unlockCount = shopItems.FindAll((obj) => {
+            unlockCount = shopItems.FindAll((obj) =>
+            {
                 return obj.KnifeUnlock;
             }).Count;
         }
         //edited added line to count all the knifes
-        int totalKnifes = shopKnifeAppleList.Count + shopKnifeWatchList.Count + shopKnifeBuyList.Count;
+        int totalKnifes = shopKnifeList.Count;
         //edited name 2 lines and 2nd line changed from shopKnifeAppleList.Count to totalKnifes
         unlockKnifeCounterLbl.text = unlockCount + "/" + totalKnifes;
         if (unlockCount == totalKnifes)
         {
-            unlockNowBtn.interactable = false;
+            unlockBtnApple.interactable = false;
             unlockRandomBtn.interactable = false;
         }
         //edited list name
-        GameManager.selectedKnifePrefab = shopKnifeAppleList[GameManager.SelectedKnifeIndex];
+        GameManager.selectedKnifePrefab = shopKnifeList[GameManager.SelectedKnifeIndex];
         if (MainMenu.intance != null)
         {
             MainMenu.intance.selectedKnifeImage.sprite = GameManager.selectedKnifePrefab.GetComponent<SpriteRenderer>().sprite;
@@ -216,7 +230,6 @@ public class TestKnifeShop : MonoBehaviour
 #else
         SoundManager.instance.PlaySingle(onUnlocksfx);
 #endif
-
     }
     bool unlockingRandom = false;
     public void UnlockRandomKnife()
@@ -266,5 +279,40 @@ public class TestKnifeShop : MonoBehaviour
 #else
         SoundManager.instance.PlaySingle(onUnlocksfx);
 #endif
+    }
+
+    public void UnlockKnifeWatchAds()
+    {
+        if (unlockingRandom)
+            return;
+
+        if (selectedShopItem.KnifeUnlock)
+        {
+            Toast.instance.ShowMessage("It's already unlocked!");
+            SoundManager.instance.PlaybtnSfx();
+            return;
+        }
+
+        if (!GamePlayManager.instance.IsAdAvailable())
+        {
+            Toast.instance.ShowMessage("No ads available at the moment!");
+            return;
+        }
+
+        if (selectedShopItem.WatchAdsAmount())
+            {
+            selectedShopItem.KnifeUnlock = true;
+            selectedShopItem.UpdateUIColor();
+            GameManager.SelectedKnifeIndex = selectedShopItem.index;
+            UpdateUI();
+#if UNITY_ANDROID && !UNITY_EDITOR
+                SoundManager.instance.OnUnlockSFX();
+#else
+            SoundManager.instance.PlaySingle(onUnlocksfx);
+#endif
+        }
+
+        int adsleftcount = selectedShopItem.adsLeft;
+        unlockBtnWatchAds.GetComponentInChildren<Text>().text = adsleftcount + "";
     }
 }

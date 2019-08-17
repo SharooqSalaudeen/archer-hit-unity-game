@@ -36,8 +36,8 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 224145802968079172}
-  - component: {fileID: 114601433126114076}
   - component: {fileID: 114921950615960984}
+  - component: {fileID: 114601433126114076}
   m_Layer: 5
   m_Name: TestShopKnifeItem
   m_TagString: Untagged

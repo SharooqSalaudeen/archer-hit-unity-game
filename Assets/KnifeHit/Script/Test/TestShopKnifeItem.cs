@@ -6,13 +6,15 @@ using UnityEngine.UI;
 public class TestShopKnifeItem : MonoBehaviour {
 
 	public int index;
+    //edited added variable
+    public string itemType;
 	public Image bgImage;
 	public Image knifeImage;
 	public GameObject selectIamge;
 	public Color unlockKnifeBGColor, lockKnifeBGColor;
 	public Color unlockKnifeColor, lockKnifeColor;
 	public AudioClip unlockKnifesfx, lockKnifesfx,confirmKnifeSfx;
-	public bool KnifeUnlock
+    public bool KnifeUnlock
 	{
 		get
 		{	
@@ -26,6 +28,7 @@ public class TestShopKnifeItem : MonoBehaviour {
 			PlayerPrefs.SetInt ("KnifeUnlock_" + index, value?1:0);
 		}
 	}
+
 	public bool selected
 	{
 		get
@@ -49,22 +52,25 @@ public class TestShopKnifeItem : MonoBehaviour {
 
 
 
-	public	void setupApple (int i,TestKnifeShop shop) 
+	public	void setup (int i,TestKnifeShop shop) 
 	{
 		shopRef=shop;
 		index = i;
         //edited list name
-		knifeRef = shop.shopKnifeAppleList [index];
+		knifeRef = shop.shopKnifeList [index];
 		knifeImage.sprite = knifeRef.GetComponent<SpriteRenderer> ().sprite;
+        //itemType = "apple";
 		UpdateUIColor ();
 	}
-    public void setupWatch(int i, TestKnifeShop shop)
+    /*
+    public void setupWatchAds(int i, TestKnifeShop shop)
     {
         shopRef = shop;
         index = i;
         //edited list name
-        knifeRef = shop.shopKnifeWatchList[index];
+        knifeRef = shop.shopKnifeList[index];
         knifeImage.sprite = knifeRef.GetComponent<SpriteRenderer>().sprite;
+        itemType = "ads";
         UpdateUIColor();
     }
     public void setupBuy(int i, TestKnifeShop shop)
@@ -72,15 +78,13 @@ public class TestShopKnifeItem : MonoBehaviour {
         shopRef = shop;
         index = i;
         //edited list name
-        knifeRef = shop.shopKnifeBuyList[index];
+        knifeRef = shop.shopKnifeList[index];
         knifeImage.sprite = knifeRef.GetComponent<SpriteRenderer>().sprite;
+        itemType = "buy";
         UpdateUIColor();
     }
-
-
-
-
-
+    */
+    
     public void OnClick()
 	{
 		if (KnifeUnlock && selected) {
@@ -90,7 +94,8 @@ public class TestShopKnifeItem : MonoBehaviour {
 #else
             SoundManager.instance.PlaySingle(confirmKnifeSfx);
 #endif
-		}
+            TestKnifeShop.intance.unlockBtnWatchAds.GetComponentInChildren<Text>().text = 0 + "";
+        }
 		if (!selected) {
 			selected = true;
 			if(!KnifeUnlock )
@@ -99,7 +104,8 @@ public class TestShopKnifeItem : MonoBehaviour {
 #else
                 SoundManager.instance.PlaySingle(lockKnifesfx);
 #endif
-		} 
+            TestKnifeShop.intance.unlockBtnWatchAds.GetComponentInChildren<Text>().text = adsLeft + "";
+        } 
 		if (KnifeUnlock) 
 		{
 			GameManager.SelectedKnifeIndex = index;
@@ -108,11 +114,43 @@ public class TestShopKnifeItem : MonoBehaviour {
 #else
             SoundManager.instance.PlaySingle(unlockKnifesfx);
 #endif
-		}
+            TestKnifeShop.intance.unlockBtnWatchAds.GetComponentInChildren<Text>().text = 0 + "";
+        }
+        if (this.itemType == "apple")
+        {
+            TestKnifeShop.intance.unlockBtnApple.gameObject.SetActive(true);
+            TestKnifeShop.intance.unlockBtnWatchAds.gameObject.SetActive(false);
+        }
+        if (this.itemType == "ads")
+        {
+            TestKnifeShop.intance.unlockBtnApple.gameObject.SetActive(false);
+            TestKnifeShop.intance.unlockBtnWatchAds.gameObject.SetActive(true);
+        }
 		shopRef.UpdateUI ();
 
 	}
-	public void UpdateUIColor()
+
+    //edited addes variable and fucion
+    public int adsLeft;
+    public bool WatchAdsAmount()
+    {
+        if (adsLeft > 0)
+        {
+#if (UNITY_ANDROID || UNITY_IOS) && !UNITY_EDITOR
+        AdmobController.instance.ShowRewardBasedVideo();
+#endif
+            adsLeft--;
+        }
+
+        if (adsLeft == 0)
+        {
+            return true;
+        }
+        else
+            return false;
+    }
+
+    public void UpdateUIColor()
 	{
 		bgImage.color = KnifeUnlock ? unlockKnifeBGColor : lockKnifeBGColor;
 		knifeImage.GetComponent<Mask> ().enabled = !KnifeUnlock;

@@ -156,7 +156,8 @@ public class GamePlayManager : MonoBehaviour
         }
     }
 
-    private bool IsAdAvailable()
+    //edited private fuction to public for call in KnifeShop
+    public bool IsAdAvailable()
     {
         if (AdmobController.instance.rewardBasedVideo == null) return false;
         bool isLoaded = AdmobController.instance.rewardBasedVideo.IsLoaded();
