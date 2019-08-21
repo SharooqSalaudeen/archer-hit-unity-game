@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using GoogleMobileAds.Api;
 
 public class TestKnifeShop : MonoBehaviour
 {
@@ -68,7 +69,7 @@ public class TestKnifeShop : MonoBehaviour
 
         CUtils.ShowInterstitialAd();
     }
-    
+
     void SetupShop()
     {
         unlockBtnApple.GetComponentInChildren<Text>().text = UnlockPrice + "";
@@ -111,63 +112,23 @@ public class TestKnifeShop : MonoBehaviour
         */
         shopItems[GameManager.SelectedKnifeIndex].OnClick();
     }
-    /*
-    void SetupAppleShop()
-    {
-        unlockNowBtn.GetComponentInChildren<Text>().text = UnlockPrice + "";
-        unlockRandomBtn.GetComponentInChildren<Text>().text = UnlockRandomPrice + "";
 
-        shopItems = new List<TestShopKnifeItem>();
-        //edited list name
-        //for (int i = 0; i < shopKnifeList.Count; i++)
-        for (int i = 0; i < 10; i++)
-        {
-            //edited name
-            TestShopKnifeItem temp = Instantiate<TestShopKnifeItem>(shopKnifePrefab, shopPageAppleContent);
-            temp.setupApple(i, this);
-            temp.name = i + "";
-            shopItems.Add(temp);
-        }
-        shopItems[GameManager.SelectedKnifeIndex].OnClick();
+
+    //edited added ads call script
+    private void OnEnable()
+    {
+        Timer.Schedule(this, 0.1f, AddEvents);
     }
-    void SetupWatchShop()
-    {
-        unlockNowBtn.GetComponentInChildren<Text>().text = UnlockPrice + "";
-        unlockRandomBtn.GetComponentInChildren<Text>().text = UnlockRandomPrice + "";
 
-        shopItems = new List<TestShopKnifeItem>();
-        //edited list name
-        //for (int i = 0; i < shopKnifeList.Count; i++)\
-        for (int i = 5; i < 15; i++)
+    private void AddEvents()
+    {
+#if UNITY_ANDROID || UNITY_IOS
+        if (AdmobController.instance.rewardBasedVideo != null)
         {
-            //edited name
-            TestShopKnifeItem temp = Instantiate<TestShopKnifeItem>(shopKnifePrefab, shopPageWatchContent);
-            temp.setupWatch(i, this);
-            temp.name = i + "";
-            shopItems.Add(temp);
+            AdmobController.instance.rewardBasedVideo.OnAdRewarded += HandleRewardBasedVideoRewarded;
         }
-        shopItems[GameManager.SelectedKnifeIndex].OnClick();
+#endif
     }
-    */
-    /*
-    void SetupBuyShop()
-    {
-        unlockNowBtn.GetComponentInChildren<Text>().text = UnlockPrice + "";
-        unlockRandomBtn.GetComponentInChildren<Text>().text = UnlockRandomPrice + "";
-
-        shopItems = new List<TestShopKnifeItem>();
-        //edited list name
-        for (int i = 0; i < shopKnifeList.Count; i++)
-        {
-            //edited name
-            TestShopKnifeItem temp = Instantiate<TestShopKnifeItem>(shopKnifePrefab, shopPageBuyContent);
-            temp.setupBuy(i, this);
-            temp.name = i + "";
-            shopItems.Add(temp);
-        }
-        shopItems[GameManager.SelectedKnifeIndex].OnClick();
-    }*/
-
 
     public void UpdateUI()
     {
@@ -281,6 +242,8 @@ public class TestKnifeShop : MonoBehaviour
 #endif
     }
 
+    //edited added the rest of the script
+    private bool usedUnlockWatchAdsBtn = false;
     public void UnlockKnifeWatchAds()
     {
         if (unlockingRandom)
@@ -296,23 +259,54 @@ public class TestKnifeShop : MonoBehaviour
         if (!GamePlayManager.instance.IsAdAvailable())
         {
             Toast.instance.ShowMessage("No ads available at the moment!");
+            SoundManager.instance.PlaybtnSfx();
             return;
         }
+        if (selectedShopItem.adsLeft > 0)
+        {
+            usedUnlockWatchAdsBtn = true;
+            
+            AdmobController.instance.ShowRewardBasedVideo();
+            
+        }
 
-        if (selectedShopItem.WatchAdsAmount())
+        
+    }
+
+    private bool doneAdWatch = false;
+    public void HandleRewardBasedVideoRewarded(object sender, Reward args)
+    {
+        if (usedUnlockWatchAdsBtn)
+        {
+            usedUnlockWatchAdsBtn = false;
+            selectedShopItem.adsLeft--;
+            int adsleftcount = selectedShopItem.adsLeft;
+            unlockBtnWatchAds.GetComponentInChildren<Text>().text = adsleftcount + "";
+
+            if (selectedShopItem.adsLeft == 0)
             {
-            selectedShopItem.KnifeUnlock = true;
-            selectedShopItem.UpdateUIColor();
-            GameManager.SelectedKnifeIndex = selectedShopItem.index;
-            UpdateUI();
+                selectedShopItem.adsLeft = -1;
+                selectedShopItem.KnifeUnlock = true;
+                selectedShopItem.UpdateUIColor();
+                GameManager.SelectedKnifeIndex = selectedShopItem.index;
+                UpdateUI();
 #if UNITY_ANDROID && !UNITY_EDITOR
                 SoundManager.instance.OnUnlockSFX();
 #else
-            SoundManager.instance.PlaySingle(onUnlocksfx);
+                SoundManager.instance.PlaySingle(onUnlocksfx);
 #endif
+            }
         }
-
-        int adsleftcount = selectedShopItem.adsLeft;
-        unlockBtnWatchAds.GetComponentInChildren<Text>().text = adsleftcount + "";
     }
+
+    private void OnDisable()
+    {
+#if UNITY_ANDROID || UNITY_IOS
+        if (AdmobController.instance.rewardBasedVideo != null)
+        {
+            AdmobController.instance.rewardBasedVideo.OnAdRewarded -= HandleRewardBasedVideoRewarded;
+        }
+#endif
+    }
+
 }

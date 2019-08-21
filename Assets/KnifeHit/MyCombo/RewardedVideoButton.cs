@@ -21,9 +21,11 @@ public class RewardedVideoButton : MonoBehaviour
         }
 #endif
     }
-
+    //edited added variable adsbtn everywhere
+    private bool adsbtn;
     public void OnClick()
     {
+        adsbtn = true;
         if (IsAvailableToShow())
         {
             AdmobController.instance.ShowRewardBasedVideo();
@@ -37,16 +39,23 @@ public class RewardedVideoButton : MonoBehaviour
         {
             Toast.instance.ShowMessage("Ad is not available now, please wait..");
         }
-
+#if UNITY_ANDROID && !UNITY_EDITOR
+                SoundManager.instance.PlaybtnSfx();
+#else
         Sound.instance.PlayButton();
+#endif
+
     }
 
     public void HandleRewardBasedVideoRewarded(object sender, Reward args)
     {
-        int amount = GameConfig.instance.rewardedVideoAmount;
-        GameManager.Apple += amount;
-        Toast.instance.ShowMessage("You've received " + amount + " apples", 2);
-        CUtils.SetActionTime(ACTION_NAME);
+        if (adsbtn)
+        {
+            int amount = GameConfig.instance.rewardedVideoAmount;
+            GameManager.Apple += amount;
+            Toast.instance.ShowMessage("You've received " + amount + " apples", 2);
+            CUtils.SetActionTime(ACTION_NAME);
+        }
     }
 
     public bool IsAvailableToShow()

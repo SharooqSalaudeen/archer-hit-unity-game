@@ -42,7 +42,7 @@ public class MainMenu : MonoBehaviour
 
 	public void OnPlayClick()
 	{
-		SoundManager.instance.PlaybtnSfx ();
+        SoundManager.instance.PlaybtnSfx ();
         //GeneralFunction.intance.LoadSceneWithLoadingScreen ("MyGameScene");
         gamePlayManager.startGame();
         gameObject.SetActive(false);

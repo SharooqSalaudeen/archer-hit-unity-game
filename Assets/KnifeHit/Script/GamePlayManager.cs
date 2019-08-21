@@ -498,7 +498,8 @@ public class GamePlayManager : MonoBehaviour
     public void OpenKnifeShop()
     {
         SoundManager.instance.PlaybtnSfx();
-        KnifeShop.intance.showShop();
+        //edited test revert later
+        TestKnifeShop.intance.showShop();
     }
     //edited add whole fuction to open Bow Shop
     public void OpenbowShop()

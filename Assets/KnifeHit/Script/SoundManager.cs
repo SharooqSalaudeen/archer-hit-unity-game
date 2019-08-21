@@ -6,6 +6,7 @@ public class SoundManager : MonoBehaviour {
 
 	public static SoundManager instance;
     //edited audio file reference
+    int playBtnFID;
     int knifeHitFID;
     int throwKnifeFID;
     int lastHitFID;
@@ -20,6 +21,7 @@ public class SoundManager : MonoBehaviour {
     int bossFightEndFID;
 
     //edited audio stream reference
+    int playBtnSID;
     int knifeHitSID;
     int throwKnifeSID;
     int lastHitSID;
@@ -52,6 +54,7 @@ public class SoundManager : MonoBehaviour {
     {
         AndroidNativeAudio.makePool();
         //loading all FileID's
+        playBtnFID = AndroidNativeAudio.load("ev_button_click.mp3");
         knifeHitFID = AndroidNativeAudio.load("ev_knife_hit_1.mp3");
         throwKnifeFID = AndroidNativeAudio.load("ev_throw_1.mp3");
         lastHitFID = AndroidNativeAudio.load("ev_hit_last.mp3");
@@ -90,8 +93,13 @@ public class SoundManager : MonoBehaviour {
 		efxSource.clip = null;
 	}
 	public void PlaybtnSfx(){
-		PlaySingle (btnSfx);
-	}
+#if UNITY_ANDROID && !UNITY_EDITOR
+        playBtnSID = AndroidNativeAudio.play(playBtnFID);
+#else
+        PlaySingle(btnSfx);
+#endif
+
+    }
 
 	public void playVibrate()
 	{
@@ -165,7 +173,8 @@ public class SoundManager : MonoBehaviour {
 
     // edited Clean up when done
     void OnApplicationQuit()
-    {       
+    {
+        AndroidNativeAudio.unload(playBtnSID);
         AndroidNativeAudio.unload(knifeHitSID);
         AndroidNativeAudio.unload(throwKnifeSID);
         AndroidNativeAudio.unload(lastHitSID);

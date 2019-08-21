@@ -56,34 +56,10 @@ public class TestShopKnifeItem : MonoBehaviour {
 	{
 		shopRef=shop;
 		index = i;
-        //edited list name
 		knifeRef = shop.shopKnifeList [index];
 		knifeImage.sprite = knifeRef.GetComponent<SpriteRenderer> ().sprite;
-        //itemType = "apple";
 		UpdateUIColor ();
 	}
-    /*
-    public void setupWatchAds(int i, TestKnifeShop shop)
-    {
-        shopRef = shop;
-        index = i;
-        //edited list name
-        knifeRef = shop.shopKnifeList[index];
-        knifeImage.sprite = knifeRef.GetComponent<SpriteRenderer>().sprite;
-        itemType = "ads";
-        UpdateUIColor();
-    }
-    public void setupBuy(int i, TestKnifeShop shop)
-    {
-        shopRef = shop;
-        index = i;
-        //edited list name
-        knifeRef = shop.shopKnifeList[index];
-        knifeImage.sprite = knifeRef.GetComponent<SpriteRenderer>().sprite;
-        itemType = "buy";
-        UpdateUIColor();
-    }
-    */
     
     public void OnClick()
 	{
@@ -119,11 +95,13 @@ public class TestShopKnifeItem : MonoBehaviour {
         if (this.itemType == "apple")
         {
             TestKnifeShop.intance.unlockBtnApple.gameObject.SetActive(true);
+            TestKnifeShop.intance.unlockRandomBtn.gameObject.SetActive(true);
             TestKnifeShop.intance.unlockBtnWatchAds.gameObject.SetActive(false);
         }
         if (this.itemType == "ads")
         {
             TestKnifeShop.intance.unlockBtnApple.gameObject.SetActive(false);
+            TestKnifeShop.intance.unlockRandomBtn.gameObject.SetActive(false);
             TestKnifeShop.intance.unlockBtnWatchAds.gameObject.SetActive(true);
         }
 		shopRef.UpdateUI ();
@@ -136,9 +114,6 @@ public class TestShopKnifeItem : MonoBehaviour {
     {
         if (adsLeft > 0)
         {
-#if (UNITY_ANDROID || UNITY_IOS) && !UNITY_EDITOR
-        AdmobController.instance.ShowRewardBasedVideo();
-#endif
             adsLeft--;
         }
 
