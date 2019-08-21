@@ -1777,6 +1777,7 @@ MonoBehaviour:
   unlockBtnApple: {fileID: 445396521}
   unlockBtnWatchAds: {fileID: 242092780}
   unlockRandomBtn: {fileID: 1083366955}
+  AdsBtn: {fileID: 1561723730}
   selectedKnifeImageUnlock: {fileID: 1112446170}
   selectedKnifeImageLock: {fileID: 602955330}
   knifeBackeffect1: {fileID: 261812232}
@@ -5022,7 +5023,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 400, y: 0}
+  m_AnchoredPosition: {x: 500, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &807322195
@@ -5383,7 +5384,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 52, y: -13.380001}
-  m_SizeDelta: {x: 34.62278, y: 31.737547}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &870930832
 MonoBehaviour:
@@ -6555,7 +6556,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 19.5, y: 1.7}
-  m_SizeDelta: {x: 40.39324, y: 31.737547}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1002632817
 GameObject:
@@ -7443,7 +7444,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: d508fd6b3c108db40959353fe21b9961, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a25ac0576bfb3944e8914f5a8e939b5a, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -7483,7 +7484,7 @@ RectTransform:
   m_GameObject: {fileID: 1188326950}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2092649245}
   m_RootOrder: 2
@@ -7491,7 +7492,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 200, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1188326952
 MonoBehaviour:
@@ -9655,7 +9656,7 @@ RectTransform:
   m_GameObject: {fileID: 1459698926}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2084440347}
   m_RootOrder: 2
@@ -9663,7 +9664,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 200, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1459698928
 MonoBehaviour:
@@ -11181,7 +11182,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: d508fd6b3c108db40959353fe21b9961, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 66bb7b431faa48646885cfe62ee09b8d, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -11947,12 +11948,13 @@ MonoBehaviour:
   - {fileID: 198406193673109968, guid: 6a4cbd9db9d2f3646ad6e765640eb7e0, type: 2}
   - {fileID: 198406193673109968, guid: e65beee118b4c6b47b5cd90aef162142, type: 2}
   - {fileID: 198406193673109968, guid: d5e6c6bfbdbbb1546b4faa8dc8fecc37, type: 2}
-  knifePrefab: {fileID: 0}
+  knifePrefab: {fileID: 114511566512732804, guid: 3ef5efc0a3ad23e4cbd9bc0ffd302b29,
+    type: 2}
   KnifeSpawnPoint: {fileID: 1677392762}
   knifeWidthByScreen: 0.2
   ApplePrefab: {fileID: 1961861215635450, guid: 4b9c4ffc310d5df429e76712b91cdb28,
     type: 2}
-  bowPrefab: {fileID: 114886565782171310, guid: 1bedbf8951ba001499825db3ab16b943,
+  bowPrefab: {fileID: 114886565782171310, guid: d7769780d60ba4a46a639f077553f025,
     type: 2}
   bowSpawnPoint: {fileID: 1141678175}
   bowHeightByScreen: 0.6
@@ -12150,7 +12152,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 85.4, y: -13.38}
-  m_SizeDelta: {x: 38.950626, y: 33.180164}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1799942613
 MonoBehaviour:
@@ -13278,7 +13280,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 12.1, y: -2.2}
-  m_SizeDelta: {x: 50.49155, y: 36.065395}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1911243602
 MonoBehaviour:
@@ -13704,7 +13706,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 12.1, y: -2.2}
-  m_SizeDelta: {x: 50.49155, y: 36.065395}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1939422795
 MonoBehaviour:
@@ -14382,7 +14384,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2070617679
 RectTransform:
   m_ObjectHideFlags: 0

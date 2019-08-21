@@ -14,7 +14,7 @@ public class TestKnifeShop : MonoBehaviour
     public Transform shopPageBuyContent;
 
     public Text unlockKnifeCounterLbl;
-    public Button unlockBtnApple, unlockBtnWatchAds, unlockRandomBtn;
+    public Button unlockBtnApple, unlockBtnWatchAds, unlockRandomBtn, AdsBtn;
     public Image selectedKnifeImageUnlock;
     public Image selectedKnifeImageLock;
     public GameObject knifeBackeffect1, knifeBackeffect2;
@@ -47,6 +47,22 @@ public class TestKnifeShop : MonoBehaviour
             SetupShop();
         }
     }
+
+    //added update for checking available ads to enable/disable buttons
+    void Update()
+    {
+        if (!GamePlayManager.instance.IsAdAvailable())
+        {
+            unlockBtnWatchAds.interactable = false;
+            AdsBtn.interactable = false;
+        }
+        else
+        {
+            unlockBtnWatchAds.interactable = true;
+            AdsBtn.interactable = true;
+        }
+    }
+
     [ContextMenu("Clear PlayerPref")]
     void ClearPlayerPrefs()
     {
