@@ -95,13 +95,13 @@ public class TestShopKnifeItem : MonoBehaviour {
         if (this.itemType == "apple")
         {
             TestKnifeShop.intance.unlockBtnApple.gameObject.SetActive(true);
-            TestKnifeShop.intance.unlockRandomBtn.gameObject.SetActive(true);
+            //TestKnifeShop.intance.unlockRandomBtn.gameObject.SetActive(true);
             TestKnifeShop.intance.unlockBtnWatchAds.gameObject.SetActive(false);
         }
         if (this.itemType == "ads")
         {
             TestKnifeShop.intance.unlockBtnApple.gameObject.SetActive(false);
-            TestKnifeShop.intance.unlockRandomBtn.gameObject.SetActive(false);
+            //TestKnifeShop.intance.unlockRandomBtn.gameObject.SetActive(false);
             TestKnifeShop.intance.unlockBtnWatchAds.gameObject.SetActive(true);
         }
 		shopRef.UpdateUI ();

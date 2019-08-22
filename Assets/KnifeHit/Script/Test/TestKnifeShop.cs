@@ -14,7 +14,9 @@ public class TestKnifeShop : MonoBehaviour
     public Transform shopPageBuyContent;
 
     public Text unlockKnifeCounterLbl;
-    public Button unlockBtnApple, unlockBtnWatchAds, unlockRandomBtn, AdsBtn;
+    //edited removed unlockRandomBtn
+    //public Button unlockRandomBtn;
+    public Button unlockBtnApple, unlockBtnWatchAds, AdsBtn;
     public Image selectedKnifeImageUnlock;
     public Image selectedKnifeImageLock;
     public GameObject knifeBackeffect1, knifeBackeffect2;
@@ -90,7 +92,7 @@ public class TestKnifeShop : MonoBehaviour
     {
         unlockBtnApple.GetComponentInChildren<Text>().text = UnlockPrice + "";
         unlockBtnWatchAds.GetComponentInChildren<Text>().text = UnlockAdsAmount + "";
-        unlockRandomBtn.GetComponentInChildren<Text>().text = UnlockRandomPrice + "";
+        //unlockRandomBtn.GetComponentInChildren<Text>().text = UnlockRandomPrice + "";
 
         shopItems = new List<TestShopKnifeItem>();
         //edited list name
@@ -171,7 +173,7 @@ public class TestKnifeShop : MonoBehaviour
         if (unlockCount == totalKnifes)
         {
             unlockBtnApple.interactable = false;
-            unlockRandomBtn.interactable = false;
+            //unlockRandomBtn.interactable = false;
         }
         //edited list name
         GameManager.selectedKnifePrefab = shopKnifeList[GameManager.SelectedKnifeIndex];
@@ -267,6 +269,7 @@ public class TestKnifeShop : MonoBehaviour
 
         if (selectedShopItem.KnifeUnlock)
         {
+            unlockBtnWatchAds.interactable = false;
             Toast.instance.ShowMessage("It's already unlocked!");
             SoundManager.instance.PlaybtnSfx();
             return;
@@ -289,7 +292,6 @@ public class TestKnifeShop : MonoBehaviour
         
     }
 
-    private bool doneAdWatch = false;
     public void HandleRewardBasedVideoRewarded(object sender, Reward args)
     {
         if (usedUnlockWatchAdsBtn)

@@ -257,6 +257,12 @@ public class GamePlayManager : MonoBehaviour
             currentBossName = "Boss : " + b.Bossname;
             UpdateLable();
             currentWoodSprite = Random.Range(0, WoodSprites.Count);
+            //edited added to hear from OnBossFightStart()
+#if UNITY_ANDROID && !UNITY_EDITOR
+        SoundManager.instance.BossFightStartSFX();
+#else
+            SoundManager.instance.PlaySingle(bossFightStartSounds[Random.Range(0, bossFightEndSounds.Length - 1)], 1f);
+#endif
             OnBossFightStart();
         }
         else
@@ -309,12 +315,8 @@ public class GamePlayManager : MonoBehaviour
     public IEnumerator OnBossFightStart()
     {
         bossFightStart.SetActive(true);
-        //edited add next 5 lines (4th line is original)
-#if UNITY_ANDROID && !UNITY_EDITOR
-                    SoundManager.instance.BossFightStartSFX();
-#else
-        SoundManager.instance.PlaySingle(bossFightStartSounds[Random.Range(0, bossFightEndSounds.Length - 1)], 1f);
-#endif
+        //edited moved next 5 lines (4th line is original)
+
         yield return new WaitForSeconds(2f);
         bossFightStart.SetActive(false);
         setupGame();
@@ -323,12 +325,8 @@ public class GamePlayManager : MonoBehaviour
     public IEnumerator OnBossFightEnd()
     {
         bossFightEnd.SetActive(true);
-        //edited add next 5 lines (4th line is original)
-#if UNITY_ANDROID && !UNITY_EDITOR
-                    SoundManager.instance.BossFightEndSFX();
-#else
-        SoundManager.instance.PlaySingle(bossFightEndSounds[Random.Range(0, bossFightEndSounds.Length - 1)], 1f);
-#endif
+        //edited moved next 5 lines (4th line is original)
+
         yield return new WaitForSeconds(2f);
         bossFightEnd.SetActive(false);
         setupGame();
@@ -389,6 +387,12 @@ public class GamePlayManager : MonoBehaviour
         if (GameManager.Stage % 5 == 0)
         {
             GameManager.Stage++;
+            //edited added to hear from OnBossFightEnd()
+#if UNITY_ANDROID && !UNITY_EDITOR
+        SoundManager.instance.BossFightEndSFX();
+#else
+            SoundManager.instance.PlaySingle(bossFightEndSounds[Random.Range(0, bossFightEndSounds.Length - 1)], 1f);
+#endif
             StartCoroutine(OnBossFightEnd());
 
         }
