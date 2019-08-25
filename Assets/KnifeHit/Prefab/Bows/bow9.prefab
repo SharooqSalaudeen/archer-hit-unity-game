@@ -73,9 +73,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54ad5247f41c00d45a02afd651c435fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stringRestX: 0.7
-  stringRestTop: 3.2
-  stringRestBottom: 3.3
+  stringRestX: 0.5
+  stringRestTop: 3.4
+  stringRestBottom: 3.4
   stringPullPoint: {fileID: 1410416533425990, guid: 8a804a832b03d3246a36236ad3e826fc,
     type: 2}
 --- !u!212 &212924329959882396
@@ -109,8 +109,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 537024349
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 341a04736a2957942a2c907aba8b7a14, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

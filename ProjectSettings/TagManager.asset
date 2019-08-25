@@ -48,6 +48,12 @@ TagManager:
   - name: Back
     uniqueID: 893959475
     locked: 0
+  - name: String
+    uniqueID: 2011220129
+    locked: 0
+  - name: Bow
+    uniqueID: 537024349
+    locked: 0
   - name: Knife
     uniqueID: 2546173815
     locked: 0

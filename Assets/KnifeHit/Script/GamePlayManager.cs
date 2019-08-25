@@ -257,12 +257,6 @@ public class GamePlayManager : MonoBehaviour
             currentBossName = "Boss : " + b.Bossname;
             UpdateLable();
             currentWoodSprite = Random.Range(0, WoodSprites.Count);
-            //edited added to hear from OnBossFightStart()
-#if UNITY_ANDROID && !UNITY_EDITOR
-        SoundManager.instance.BossFightStartSFX();
-#else
-            SoundManager.instance.PlaySingle(bossFightStartSounds[Random.Range(0, bossFightEndSounds.Length - 1)], 1f);
-#endif
             OnBossFightStart();
         }
         else
@@ -401,6 +395,12 @@ public class GamePlayManager : MonoBehaviour
             GameManager.Stage++;
             if (GameManager.Stage % 5 == 0)
             {
+                //edited added to here from OnBossFightStart()
+#if UNITY_ANDROID && !UNITY_EDITOR
+        SoundManager.instance.BossFightStartSFX();
+#else
+                SoundManager.instance.PlaySingle(bossFightStartSounds[Random.Range(0, bossFightEndSounds.Length - 1)], 1f);
+#endif
                 StartCoroutine(OnBossFightStart());
             }
             else

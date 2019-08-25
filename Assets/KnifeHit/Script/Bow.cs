@@ -34,6 +34,7 @@ public class Bow : MonoBehaviour {
         bowStringLinerenderer.SetPosition(0, bowStringPosition[0]);
         bowStringLinerenderer.SetPosition(1, bowStringPosition[1]);
         bowStringLinerenderer.SetPosition(2, bowStringPosition[2]);
+        bowStringLinerenderer.sortingLayerName = "String";
         //edited added line for tempPoint
         stringPullPoint.transform.position = new Vector3(0f, 0f, 0f);
 
