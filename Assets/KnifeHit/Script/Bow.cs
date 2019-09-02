@@ -7,26 +7,31 @@ public class Bow : MonoBehaviour {
     [Range(0f, 2f)] public float stringRestX = 1f;
     [Range(0f, 4f)] public float stringRestTop = 2f;
     [Range(0f, 4f)] public float stringRestBottom = 2f;
+    public Material Material;
+    Color materialColor = new Color(0.6f, 0.5f, 0.6f);
     // the bowstring is a line renderer
     private List<Vector3> bowStringPosition;
     LineRenderer bowStringLinerenderer;
 
     // position of the line renderers middle part 
     Vector3 stringPullout;
-    Vector3 stringRestPosition;
+    //Vector3 stringRestPosition;
     public GameObject stringPullPoint;
 
     // Start is called before the first frame update
     void Start()
     {
-        stringRestPosition = new Vector3(-stringRestX, 0f, 0f);
+        //stringRestPosition = new Vector3(-stringRestX, 0f, 0f);
         // setup the line renderer representing the bowstring
         bowStringLinerenderer = gameObject.AddComponent<LineRenderer>();
         //bowStringLinerenderer = gameObject.GetComponent<LineRenderer>();
         bowStringLinerenderer.SetVertexCount(3);
         bowStringLinerenderer.SetWidth(0.05F, 0.05F);
         bowStringLinerenderer.useWorldSpace = false;
-        bowStringLinerenderer.material = Resources.Load("bowStringMaterial") as Material;
+        //bowStringLinerenderer.material = Resources.Load("bowStringMaterial") as Material;
+        //bowStringLinerenderer.material = Material;
+        bowStringLinerenderer.material = new Material(Shader.Find("Sprites/Default"));
+        bowStringLinerenderer.material.color = materialColor;
         bowStringPosition = new List<Vector3>();
         bowStringPosition.Add(new Vector3(-stringRestX, stringRestTop, 0f));
         bowStringPosition.Add(new Vector3(-stringRestX, 0f, 0f));

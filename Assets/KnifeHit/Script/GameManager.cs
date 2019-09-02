@@ -102,6 +102,18 @@ public class GameManager : MonoBehaviour {
             PlayerPrefs.SetInt("SelectedBowIndex", value);
         }
     }
+    //edited add Instruction bool
+    public static bool Instruction
+    {
+        get
+        {
+            return PlayerPrefs.GetInt("GameInstruction", 1) == 1;
+        }
+        set
+        {
+            PlayerPrefs.SetInt("GameInstruction", value ? 1 : 0);
+        }
+    }
 
     public static bool Sound
 	{

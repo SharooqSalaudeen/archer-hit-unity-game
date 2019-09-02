@@ -13,6 +13,7 @@ public class GamePlayManager : MonoBehaviour
     public static GamePlayManager instance;
     [Header("Circle Setting")]
     public Circle[] circlePrefabs;
+    public Bosses[] EasyBossPrefabs;
     public Bosses[] BossPrefabs;
 
     public Transform circleSpawnPoint;
@@ -48,8 +49,10 @@ public class GamePlayManager : MonoBehaviour
     public List<Image> stageIcons;
     public Color stageIconActiveColor;
     public Color stageIconNormalColor;
+    //edited add instruction Text and InstTextCanvasGroup
+    public GameObject InstructionView;
+    public CanvasGroup instTextCanvasGroup;
 
-    
 
     [Header("UI Boss")]
 
@@ -132,13 +135,21 @@ public class GamePlayManager : MonoBehaviour
         }
 #endif
     }
-
+    //edited added int
+    int continueAdsAmount = 0;
     bool doneWatchingAd = false;
     public void HandleRewardBasedVideoRewarded(object sender, Reward args)
     {
         if (usedAdContinue)
         {
-            doneWatchingAd = true;
+            //original
+            //doneWatchingAd = true;
+            //AdShowSucessfully();
+            if (continueAdsAmount == 2)
+            {
+                doneWatchingAd = true;
+            }
+            continueAdsAmount++;
             AdShowSucessfully();
         }
     }
@@ -175,12 +186,44 @@ public class GamePlayManager : MonoBehaviour
 #endif
     }
 
+    //edited add fuction InitiateGame use to add show instruction check
+    public void InitiateGame()
+    {
+        startGame();
+        if (!GameManager.Instruction)
+        {
+            ShowInstructionView();
+            Invoke("HideInstructionView", 3f);
+        }
+
+    }
+
+    private void ShowInstructionView()
+    {
+        GameManager.Instruction = false;
+        InstructionView.SetActive(true);
+        LeanTween.alphaCanvas (instTextCanvasGroup, 0f, .4f).setOnComplete (() => {
+				LeanTween.alphaCanvas (instTextCanvasGroup, 1f, .4f);
+        });
+    }
+
+    private void HideInstructionView()
+    {
+        LeanTween.alphaCanvas(instTextCanvasGroup, 1f, .4f).setOnComplete(() => {
+            LeanTween.alphaCanvas(instTextCanvasGroup, 0f, .4f);
+        });
+        InstructionView.SetActive(false);
+    }
+
     public void startGame()
     {
         GameManager.score = 0;
         GameManager.Stage = 1;
         GameManager.isGameOver = false;
         usedAdContinue = false;
+        //edited added 2 lines
+        doneWatchingAd = false;
+        continueAdsAmount = 0;
         //edited add fuction SpawnBow()
         SpawnBow();
         if (isDebug)
@@ -250,7 +293,16 @@ public class GamePlayManager : MonoBehaviour
     public void spawnCircle()
     {
         GameObject tempCircle;
-        if (GameManager.Stage % 5 == 0)
+        if (GameManager.Stage % 5 == 0 && GameManager.Stage <= 10)
+        {
+            Bosses a = EasyBossPrefabs[Random.Range(0, EasyBossPrefabs.Length)];
+            tempCircle = Instantiate<Circle>(a.BossPrefab, circleSpawnPoint.position, Quaternion.identity, circleSpawnPoint).gameObject;
+            currentBossName = "Boss : " + a.Bossname;
+            UpdateLable();
+            currentWoodSprite = Random.Range(0, WoodSprites.Count);
+            OnBossFightStart();
+        }
+        else if (GameManager.Stage % 5 == 0 && GameManager.Stage > 10)
         {
             Bosses b = BossPrefabs[Random.Range(0, BossPrefabs.Length)];
             tempCircle = Instantiate<Circle>(b.BossPrefab, circleSpawnPoint.position, Quaternion.identity, circleSpawnPoint).gameObject;
@@ -309,9 +361,11 @@ public class GamePlayManager : MonoBehaviour
     public IEnumerator OnBossFightStart()
     {
         bossFightStart.SetActive(true);
+        SoundManager.instance.playVibrate();
         //edited moved next 5 lines (4th line is original)
 
         yield return new WaitForSeconds(2f);
+        SoundManager.instance.playVibrate();
         bossFightStart.SetActive(false);
         setupGame();
     }
@@ -409,15 +463,30 @@ public class GamePlayManager : MonoBehaviour
             }
         }
     }
-
+    //edited added float freeContinueChance
+    float freeContinueChance;
     IEnumerator currentShowingAdsPopup;
     public void GameOver()
     {
         GameManager.isGameOver = true;
-
-        if (usedAdContinue || !IsAdAvailable())
+        //edited added lines
+        freeContinueChance = Random.Range(1.0f, 10.0f);
+        //edited original if (usedAdContinue || !IsAdAvailable()) to if (doneWatchingAd || !IsAdAvailable())
+        if (doneWatchingAd || !IsAdAvailable())
         {
             showGameOverPopup();
+        }
+        //added else if statement
+        else if (freeContinueChance > 5)
+        {
+
+            yield return new WaitForSeconds(0.1f);
+            if (continueAdsAmount == 2)
+            {
+                doneWatchingAd = true;
+            }
+            continueAdsAmount++;
+            AdShowSucessfully();
         }
         else
         {
@@ -430,7 +499,7 @@ public class GamePlayManager : MonoBehaviour
         adsShowView.SetActive(true);
         adSocreLbl.text = GameManager.score + "";
         SoundManager.instance.PlayTimerSound();
-        for (float i = 1f; i > 0; i -= 0.01f)
+        for (float i = 1f; i > 0; i -= 0.015f)
         {
             adTimerImage.fillAmount = i;
             yield return new WaitForSeconds(0.1f);

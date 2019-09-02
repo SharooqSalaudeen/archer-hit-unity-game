@@ -76,6 +76,7 @@ MonoBehaviour:
   stringRestX: 0.5
   stringRestTop: 3.4
   stringRestBottom: 3.4
+  material: {fileID: 2100000, guid: d296f263ae64f7246b16fb3f7186abe2, type: 2}
   stringPullPoint: {fileID: 1410416533425990, guid: 8a804a832b03d3246a36236ad3e826fc,
     type: 2}
 --- !u!212 &212924329959882396

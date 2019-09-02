@@ -44,7 +44,7 @@ public class MainMenu : MonoBehaviour
 	{
         SoundManager.instance.PlaybtnSfx ();
         //GeneralFunction.intance.LoadSceneWithLoadingScreen ("MyGameScene");
-        gamePlayManager.startGame();
+        gamePlayManager.InitiateGame();
         gameObject.SetActive(false);
 	}
 	public void RateGame()
@@ -107,5 +107,6 @@ public class MainMenu : MonoBehaviour
 		SoundManager.instance.PlaybtnSfx ();
 		SettingUI.intance.showUI();	
 	}
+
 }
 

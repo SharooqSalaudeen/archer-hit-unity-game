@@ -1081,16 +1081,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   admob:
-    androidInterstitial: 
+    androidInterstitial: ca-app-pub-2618439957297110/1424768327
     iosInterstitial: 
     androidBanner: 
     iosBanner: 
-    androidRewarded: ca-app-pub-3940256099942544/5224354917
+    androidRewarded: ca-app-pub-2618439957297110/6527769810
     iosRewarded: 
   adPeriod: 75
   rewardedVideoPeriod: 120
   rewardedVideoAmount: 50
-  androidPackageID: 
+  androidPackageID: com.applecakestudios.archer
   iosAppID: 
 --- !u!114 &114591901928914930
 MonoBehaviour:

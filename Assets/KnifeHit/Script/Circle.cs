@@ -153,7 +153,7 @@ public class Circle : MonoBehaviour {
             SoundManager.instance.PlaySingle (woodHitSfx);
             #endif
 			}
-			GameManager.score++;
+			GameManager.score = GameManager.score + GameManager.Stage;
 		}
 
 

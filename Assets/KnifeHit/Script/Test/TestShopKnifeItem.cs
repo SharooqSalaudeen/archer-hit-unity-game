@@ -60,7 +60,7 @@ public class TestShopKnifeItem : MonoBehaviour {
 		knifeImage.sprite = knifeRef.GetComponent<SpriteRenderer> ().sprite;
 		UpdateUIColor ();
 	}
-    
+
     public void OnClick()
 	{
 		if (KnifeUnlock && selected) {
