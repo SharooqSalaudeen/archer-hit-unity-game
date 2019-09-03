@@ -70,6 +70,10 @@ public class GamePlayManager : MonoBehaviour
     public Image adTimerImage;
     public Text adSocreLbl;
 
+    //edited added freeContinueView
+    [Header("Free Continue Show")]
+    public GameObject freeContinueView;
+
 
     [Header("GameOver Popup")]
     public GameObject gameOverView;
@@ -477,10 +481,10 @@ public class GamePlayManager : MonoBehaviour
             showGameOverPopup();
         }
         //added else if statement
-        else if (freeContinueChance > 5)
+        else if (freeContinueChance < 2.5)
         {
-
-            yield return new WaitForSeconds(0.1f);
+            currentShowingAdsPopup = FreeContinue();
+            StartCoroutine(currentShowingAdsPopup);
             if (continueAdsAmount == 2)
             {
                 doneWatchingAd = true;
@@ -494,6 +498,13 @@ public class GamePlayManager : MonoBehaviour
             StartCoroutine(currentShowingAdsPopup);
         }
     }
+    IEnumerator FreeContinue()
+    {
+        freeContinueView.SetActive(true);
+        yield return new WaitForSeconds(3f);
+        freeContinueView.SetActive(false);
+    }
+
     public IEnumerator showAdPopup()
     {
         adsShowView.SetActive(true);
