@@ -12,7 +12,7 @@ PlayerSettings:
   useOnDemandResources: 0
   accelerometerFrequency: 60
   companyName: Applecake Studios
-  productName: Archer
+  productName: 'Archer : Hit'
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}
@@ -161,7 +161,7 @@ PlayerSettings:
   applicationIdentifier:
     Android: com.applecakestudios.archer
   buildNumber: {}
-  AndroidBundleVersionCode: 1
+  AndroidBundleVersionCode: 2
   AndroidMinSdkVersion: 24
   AndroidTargetSdkVersion: 0
   AndroidPreferredInstallLocation: 1
@@ -662,8 +662,8 @@ PlayerSettings:
     UNet: 1
   facebookSdkVersion: 7.9.4
   apiCompatibilityLevel: 3
-  cloudProjectId: 38f555ed-17f3-414a-829a-b529e627f4ef
-  projectName: Knife Hit
+  cloudProjectId: e8332c0a-ce43-44b1-b1f2-4efd1e1a02bd
+  projectName: Archer Hit
   organizationId: sharooqs
   cloudEnabled: 0
   enableNativePlatformBackendsForNewInputSystem: 0
