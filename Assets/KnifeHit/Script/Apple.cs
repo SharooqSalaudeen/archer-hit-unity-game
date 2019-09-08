@@ -29,7 +29,7 @@ public class Apple : MonoBehaviour {
 #else
             SoundManager.instance.PlaySingle(appleHitSfx);
 #endif
-				GameManager.Apple++;
+				GameManager.Apple = GameManager.Apple + 2;
 				transform.parent = null;
 				GetComponent<CircleCollider2D> ().enabled = false;
 				Sprite.enabled = false;

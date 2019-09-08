@@ -114,6 +114,18 @@ public class GameManager : MonoBehaviour {
             PlayerPrefs.SetInt("GameInstruction", value ? 1 : 0);
         }
     }
+    //edited add Instruction bool
+    public static bool GameRated
+    {
+        get
+        {
+            return PlayerPrefs.GetInt("RatedGame", 1) == 1;
+        }
+        set
+        {
+            PlayerPrefs.SetInt("RatedGame", value ? 1 : 0);
+        }
+    }
 
     public static bool Sound
 	{

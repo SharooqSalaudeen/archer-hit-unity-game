@@ -52,6 +52,7 @@ public class GamePlayManager : MonoBehaviour
     //edited add instruction Text and InstTextCanvasGroup
     public GameObject InstructionView;
     public CanvasGroup instTextCanvasGroup;
+    public GameObject GameRateView;
 
 
     [Header("UI Boss")]
@@ -194,7 +195,7 @@ public class GamePlayManager : MonoBehaviour
     public void InitiateGame()
     {
         startGame();
-        if (!GameManager.Instruction)
+        if (GameManager.Instruction)
         {
             ShowInstructionView();
             Invoke("HideInstructionView", 3f);
@@ -556,6 +557,11 @@ public class GamePlayManager : MonoBehaviour
     }
     public void showGameOverPopup()
     {
+        if (GameManager.GameRated && GameManager.Stage > 12)
+        {
+            GameRateView.SetActive(true);
+            LeanTween.scale(GameRateView,new Vector3 (1,1,1),0.3f);
+        }
         gameOverView.SetActive(true);
         //edited add next 5 lines to destroy gameobjects for next new session to begin
         currentCircle.destroyMeAndAllKnives();
@@ -579,6 +585,14 @@ public class GamePlayManager : MonoBehaviour
 
         CUtils.ShowInterstitialAd();
     }
+
+    //edited added fuction
+    public void OpenRateGame()
+    {
+        GameRateView.SetActive(false);
+        GameManager.GameRated = false;
+    }
+
     public void OpenKnifeShop()
     {
         SoundManager.instance.PlaybtnSfx();
