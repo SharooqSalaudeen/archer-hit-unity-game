@@ -70,8 +70,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   totalKnife: 6
   RandomRotation:
-  - time: 2
-    z: 180
+  - time: 1.5
+    z: 90
     curve:
       serializedVersion: 2
       m_Curve:
@@ -168,8 +168,8 @@ MonoBehaviour:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 0
-  - time: 2
-    z: -180
+  - time: 1.5
+    z: -90
     curve:
       serializedVersion: 2
       m_Curve:
@@ -188,8 +188,8 @@ MonoBehaviour:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 0
-  - time: 2
-    z: -180
+  - time: 1.5
+    z: -120
     curve:
       serializedVersion: 2
       m_Curve:
@@ -286,8 +286,8 @@ MonoBehaviour:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 0
-  - time: 2
-    z: 180
+  - time: 1.5
+    z: 120
     curve:
       serializedVersion: 2
       m_Curve:
@@ -384,8 +384,8 @@ MonoBehaviour:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 0
-  - time: 2
-    z: -180
+  - time: 1.5
+    z: -90
     curve:
       serializedVersion: 2
       m_Curve:
@@ -503,7 +503,6 @@ MonoBehaviour:
     - 200
     - 240
     - 280
-    - 320
   hitParticle: {fileID: 198314479377665406, guid: 30992170b829fed449253b05b1cddc5a,
     type: 2}
   splashParticle: {fileID: 198276289501521494, guid: e057e4784ad6c4a4ca6257063e6175b8,

@@ -9,7 +9,7 @@ public class BowShop : MonoBehaviour
     public ShopBowItem shopBowPrefab;
     public Transform shopPageContent;
     public Text unlockBowCounterLbl;
-    public Button unlockNowBtn, unlockRandomBtn;
+    public Button unlockNowBtn, unlockRandomBtn, AdsBtn;
     public Image selectedBowImageUnlock;
     public Image selectedBowImageLock;
     public GameObject BowBackeffect1, BowBackeffect2;
@@ -34,6 +34,19 @@ public class BowShop : MonoBehaviour
             SetupShop();
         }
     }
+
+    void Update()
+    {
+        if (!GamePlayManager.instance.IsAdAvailable())
+        {
+            AdsBtn.interactable = false;
+        }
+        else
+        {
+            AdsBtn.interactable = true;
+        }
+    }
+
     [ContextMenu("Clear PlayerPref")]
     void ClearPlayerPrefs()
     {

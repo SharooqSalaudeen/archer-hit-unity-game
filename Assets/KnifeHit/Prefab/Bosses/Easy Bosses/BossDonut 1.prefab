@@ -70,7 +70,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   totalKnife: 6
   RandomRotation:
-  - time: 2
+  - time: 1
     z: 180
     curve:
       serializedVersion: 2
@@ -168,7 +168,7 @@ MonoBehaviour:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 0
-  - time: 2
+  - time: 1
     z: -180
     curve:
       serializedVersion: 2
@@ -188,7 +188,7 @@ MonoBehaviour:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 0
-  - time: 2
+  - time: 1
     z: -180
     curve:
       serializedVersion: 2
@@ -286,7 +286,7 @@ MonoBehaviour:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 0
-  - time: 2
+  - time: 1
     z: 180
     curve:
       serializedVersion: 2
@@ -384,7 +384,7 @@ MonoBehaviour:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 0
-  - time: 2
+  - time: 1
     z: -180
     curve:
       serializedVersion: 2

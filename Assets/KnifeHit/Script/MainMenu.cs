@@ -32,7 +32,7 @@ public class MainMenu : MonoBehaviour
 	}
 	void Start()
 	{
-        CUtils.ShowInterstitialAd();
+        //CUtils.ShowInterstitialAd();
 		InvokeRepeating ("updateGiftStatus", 0f, 1f);
         //edited commented next two instructions because of no use. UpdateUI will be called on the respective button click and KnifeShop to TestKnifeShop revert in future
         TestKnifeShop.intance.UpdateUI ();

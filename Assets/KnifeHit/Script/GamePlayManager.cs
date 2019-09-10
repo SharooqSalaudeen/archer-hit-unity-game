@@ -142,6 +142,7 @@ public class GamePlayManager : MonoBehaviour
     }
     //edited added int
     int continueAdsAmount = 0;
+    bool AdWatched = false;
     bool doneWatchingAd = false;
     public void HandleRewardBasedVideoRewarded(object sender, Reward args)
     {
@@ -154,6 +155,7 @@ public class GamePlayManager : MonoBehaviour
             {
                 doneWatchingAd = true;
             }
+            AdWatched = true;
             continueAdsAmount++;
             AdShowSucessfully();
         }
@@ -163,7 +165,7 @@ public class GamePlayManager : MonoBehaviour
     {
         if (usedAdContinue)
         {
-            if (doneWatchingAd == false)
+            if (AdWatched == false)
             {
                 adsShowView.SetActive(false);
                 usedAdContinue = false;
@@ -226,9 +228,10 @@ public class GamePlayManager : MonoBehaviour
         GameManager.Stage = 1;
         GameManager.isGameOver = false;
         usedAdContinue = false;
-        //edited added 2 lines
+        //edited added 3 lines
         doneWatchingAd = false;
         continueAdsAmount = 0;
+        AdWatched = false;
         //edited add fuction SpawnBow()
         SpawnBow();
         if (isDebug)
@@ -522,7 +525,7 @@ public class GamePlayManager : MonoBehaviour
     public void OnShowAds()
     {
         doneWatchingAd = false;
-
+        AdWatched = false;
         SoundManager.instance.StopTimerSound();
         SoundManager.instance.PlaybtnSfx();
         usedAdContinue = true;
@@ -557,6 +560,7 @@ public class GamePlayManager : MonoBehaviour
     }
     public void showGameOverPopup()
     {
+        //edited added if statement
         if (GameManager.GameRated && GameManager.Stage > 12)
         {
             GameRateView.SetActive(true);
@@ -587,8 +591,10 @@ public class GamePlayManager : MonoBehaviour
     }
 
     //edited added fuction
-    public void OpenRateGame()
+    public void RateGame()
     {
+        SoundManager.instance.PlaybtnSfx();
+        CUtils.OpenStore();
         GameRateView.SetActive(false);
         GameManager.GameRated = false;
     }
@@ -640,7 +646,7 @@ public class GamePlayManager : MonoBehaviour
     IEnumerator CROneStepSharing()
     {
         yield return new WaitForEndOfFrame();
-        MobileNativeShare.ShareScreenshot("screenshot", "");
+        MobileNativeShare.ShareScreenshot("screenshot", "https://www.google.com");
     }
 }
 

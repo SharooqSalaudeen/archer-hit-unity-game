@@ -1087,8 +1087,8 @@ MonoBehaviour:
     iosBanner: 
     androidRewarded: ca-app-pub-2618439957297110/6527769810
     iosRewarded: 
-  adPeriod: 75
-  rewardedVideoPeriod: 120
+  adPeriod: 120
+  rewardedVideoPeriod: 30
   rewardedVideoAmount: 50
   androidPackageID: com.applecakestudios.archer
   iosAppID: 
@@ -1106,7 +1106,7 @@ MonoBehaviour:
   iapItems:
   - productID: remove_ads
     productType: 1
-    price: 1.99
+    price: 2.99
     value: 0
 --- !u!114 &114887445765180300
 MonoBehaviour:
