@@ -1983,8 +1983,8 @@ MonoBehaviour:
   selectedKnifeImageLock: {fileID: 602955330}
   knifeBackeffect1: {fileID: 261812232}
   knifeBackeffect2: {fileID: 762530280}
-  UnlockPrice: 50
-  UnlockRandomPrice: 30
+  UnlockPrice: 100
+  UnlockRandomPrice: 75
   UnlockAdsAmount: 3
   shopKnifeList:
   - {fileID: 114511566512732804, guid: 3ef5efc0a3ad23e4cbd9bc0ffd302b29, type: 2}
@@ -2360,8 +2360,8 @@ MonoBehaviour:
   selectedBowImageLock: {fileID: 1911369254}
   BowBackeffect1: {fileID: 671173118}
   BowBackeffect2: {fileID: 302002881}
-  UnlockPrice: 75
-  UnlockRandomPrice: 50
+  UnlockPrice: 150
+  UnlockRandomPrice: 100
   shopBowList:
   - {fileID: 114886565782171310, guid: d7769780d60ba4a46a639f077553f025, type: 2}
   - {fileID: 114886565782171310, guid: 8520e1324eb0a8a4a84de8c20897dd4f, type: 2}

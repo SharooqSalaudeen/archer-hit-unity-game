@@ -1089,7 +1089,7 @@ MonoBehaviour:
     iosRewarded: 
   adPeriod: 180
   rewardedVideoPeriod: 30
-  rewardedVideoAmount: 100
+  rewardedVideoAmount: 40
   androidPackageID: com.applecakestudios.archer
   iosAppID: 
 --- !u!114 &114591901928914930
@@ -1106,7 +1106,7 @@ MonoBehaviour:
   iapItems:
   - productID: remove_ads
     productType: 1
-    price: 2.99
+    price: 1.99
     value: 0
 --- !u!114 &114887445765180300
 MonoBehaviour:
