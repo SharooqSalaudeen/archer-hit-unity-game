@@ -81,8 +81,12 @@ public class Knife : MonoBehaviour {
 			//Application.LoadLevel ("Main");
 		} else if (coll.gameObject.tag == "Wood" && !isHitted && !GameManager.isGameOver) {
 			coll.gameObject.GetComponent<Circle> ().OnKnifeHit (this);
-		
-		}/*
+            //edited added leantween call
+            LeanTween.scale(GamePlayManager.instance.scoreView, new Vector3 (1.3f,1.3f,1f), .1f).setOnComplete(() => {
+                LeanTween.scale(GamePlayManager.instance.scoreView, new Vector3 (1,1,1), .1f);
+            });
+
+        }/*
 		else {
 			Physics2D.IgnoreCollision (coll.collider, GetComponents<Collider2D> ()[0]);
 			Physics2D.IgnoreCollision (coll.collider, GetComponents<Collider2D> ()[1]);

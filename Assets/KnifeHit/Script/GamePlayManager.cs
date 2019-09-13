@@ -53,6 +53,9 @@ public class GamePlayManager : MonoBehaviour
     public GameObject InstructionView;
     public CanvasGroup instTextCanvasGroup;
     public GameObject GameRateView;
+    //edited added 2 line
+    public GameObject KnifeCounterView;
+    public GameObject AppleCounterView;
 
 
     [Header("UI Boss")]
@@ -201,6 +204,7 @@ public class GamePlayManager : MonoBehaviour
         {
             ShowInstructionView();
             Invoke("HideInstructionView", 3f);
+            InstructionView.SetActive(false);
         }
 
     }
@@ -216,10 +220,7 @@ public class GamePlayManager : MonoBehaviour
 
     private void HideInstructionView()
     {
-        LeanTween.alphaCanvas(instTextCanvasGroup, 1f, .4f).setOnComplete(() => {
-            LeanTween.alphaCanvas(instTextCanvasGroup, 0f, .4f);
-        });
-        InstructionView.SetActive(false);
+        LeanTween.alphaCanvas(instTextCanvasGroup, 0f, .4f);
     }
 
     public void startGame()
@@ -368,23 +369,39 @@ public class GamePlayManager : MonoBehaviour
 
     public IEnumerator OnBossFightStart()
     {
+        //editesd added 3 line
+        currentBow.gameObject.SetActive(false);
+        KnifeCounterView.SetActive(false);
+        stageCounterView.SetActive(false);
         bossFightStart.SetActive(true);
         SoundManager.instance.playVibrate();
         //edited moved next 5 lines (4th line is original)
 
         yield return new WaitForSeconds(2f);
-        SoundManager.instance.playVibrate();
         bossFightStart.SetActive(false);
+        SoundManager.instance.playVibrate();
+        //editesd added 3 line
+        currentBow.gameObject.SetActive(true);
+        KnifeCounterView.SetActive(true);
+        stageCounterView.SetActive(true);
         setupGame();
     }
 
     public IEnumerator OnBossFightEnd()
     {
+        //editesd added 3 line
+        currentBow.gameObject.SetActive(false);
+        KnifeCounterView.SetActive(false);
+        stageCounterView.SetActive(false);
         bossFightEnd.SetActive(true);
         //edited moved next 5 lines (4th line is original)
 
         yield return new WaitForSeconds(2f);
         bossFightEnd.SetActive(false);
+        //editesd added 3 line
+        currentBow.gameObject.SetActive(true);
+        KnifeCounterView.SetActive(true);
+        stageCounterView.SetActive(true);
         setupGame();
     }
     public IEnumerator GenerateKnife()
@@ -485,7 +502,7 @@ public class GamePlayManager : MonoBehaviour
             showGameOverPopup();
         }
         //added else if statement
-        else if (freeContinueChance < 2.5)
+        else if (freeContinueChance < 2)
         {
             currentShowingAdsPopup = FreeContinue();
             StartCoroutine(currentShowingAdsPopup);
@@ -646,7 +663,7 @@ public class GamePlayManager : MonoBehaviour
     IEnumerator CROneStepSharing()
     {
         yield return new WaitForEndOfFrame();
-        MobileNativeShare.ShareScreenshot("screenshot", "https://www.google.com");
+        MobileNativeShare.ShareScreenshot("screenshot", "https://play.google.com/store/apps/details?id=com.applecakestudios.archer");
     }
 }
 

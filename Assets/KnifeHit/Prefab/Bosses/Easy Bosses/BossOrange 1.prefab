@@ -70,7 +70,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   totalKnife: 8
   RandomRotation:
-  - time: 0.9
+  - time: 1
     z: -90
     curve:
       serializedVersion: 2

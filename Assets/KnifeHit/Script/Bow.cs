@@ -8,7 +8,7 @@ public class Bow : MonoBehaviour {
     [Range(0f, 4f)] public float stringRestTop = 2f;
     [Range(0f, 4f)] public float stringRestBottom = 2f;
     public Material Material;
-    Color materialColor = new Color(0.6f, 0.5f, 0.6f);
+    Color materialColor = new Color(0.36f, 0.18f, 0.04f);
     // the bowstring is a line renderer
     private List<Vector3> bowStringPosition;
     LineRenderer bowStringLinerenderer;

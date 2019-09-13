@@ -25,12 +25,16 @@ public class Apple : MonoBehaviour {
             //if (!other.gameObject.GetComponent<Knife> ().isHitted) {
             //edited add next 5 lines (4th line is original)
 #if UNITY_ANDROID && !UNITY_EDITOR
-                SoundManager.instance.AppleHitSFX();
+            SoundManager.instance.AppleHitSFX();
 #else
             SoundManager.instance.PlaySingle(appleHitSfx);
 #endif
 				GameManager.Apple = GameManager.Apple + 2;
-				transform.parent = null;
+                //edited added leantween call
+                LeanTween.scale(GamePlayManager.instance.AppleCounterView, new Vector3(1.3f, 1.3f, 1f), .1f).setOnComplete(() => {
+                    LeanTween.scale(GamePlayManager.instance.AppleCounterView, new Vector3(1, 1, 1), .1f);
+                });
+                transform.parent = null;
 				GetComponent<CircleCollider2D> ().enabled = false;
 				Sprite.enabled = false;
 				splatApple.Play ();
