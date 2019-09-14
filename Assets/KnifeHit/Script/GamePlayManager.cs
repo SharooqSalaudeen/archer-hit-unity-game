@@ -74,9 +74,10 @@ public class GamePlayManager : MonoBehaviour
     public Image adTimerImage;
     public Text adSocreLbl;
 
-    //edited added freeContinueView
+    //edited added freeContinueView and sound
     [Header("Free Continue Show")]
     public GameObject freeContinueView;
+    public AudioClip freeContinueSound;
 
 
     [Header("GameOver Popup")]
@@ -521,6 +522,11 @@ public class GamePlayManager : MonoBehaviour
     }
     IEnumerator FreeContinue()
     {
+#if UNITY_ANDROID && !UNITY_EDITOR
+        SoundManager.instance.FreeContinueSFX();
+#else
+        SoundManager.instance.PlaySingle(freeContinueSound);
+#endif
         freeContinueView.SetActive(true);
         yield return new WaitForSeconds(3f);
         freeContinueView.SetActive(false);

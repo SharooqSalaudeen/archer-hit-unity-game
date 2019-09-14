@@ -2491,7 +2491,6 @@ GameObject:
   m_Component:
   - component: {fileID: 423965275}
   - component: {fileID: 423965274}
-  - component: {fileID: 423965273}
   m_Layer: 5
   m_Name: Free Continue View
   m_TagString: Untagged
@@ -2499,33 +2498,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
   m_IsActive: 0
---- !u!114 &423965273
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 423965272}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 8701a212380540848bedc45c24692b88, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
 --- !u!222 &423965274
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3593,7 +3565,6 @@ GameObject:
   m_Component:
   - component: {fileID: 570862656}
   - component: {fileID: 570862658}
-  - component: {fileID: 570862657}
   m_Layer: 5
   m_Name: Boss Defeated View
   m_TagString: Untagged
@@ -3621,33 +3592,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &570862657
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 570862655}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 8701a212380540848bedc45c24692b88, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
 --- !u!222 &570862658
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -8707,7 +8651,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: +50
+  m_Text: +40
 --- !u!222 &1245059389
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -12777,6 +12721,7 @@ MonoBehaviour:
   adTimerImage: {fileID: 764099219}
   adSocreLbl: {fileID: 617472388}
   freeContinueView: {fileID: 423965272}
+  freeContinueSound: {fileID: 8300000, guid: a10f1205f34565349b66895b6a4548ac, type: 3}
   gameOverView: {fileID: 1126362304}
   gameOverSocreLbl: {fileID: 1536234853}
   gameOverStageLbl: {fileID: 1871595662}
@@ -14130,7 +14075,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: +50
+  m_Text: +40
 --- !u!222 &1911243606
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -14234,7 +14179,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1925647792}
   - component: {fileID: 1925647794}
-  - component: {fileID: 1925647793}
   m_Layer: 5
   m_Name: Boss Fight View
   m_TagString: Untagged
@@ -14262,33 +14206,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1925647793
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1925647791}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
-  m_RaycastTarget: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 8701a212380540848bedc45c24692b88, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
 --- !u!222 &1925647794
 CanvasRenderer:
   m_ObjectHideFlags: 0
