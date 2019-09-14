@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "167302457853",
+    "firebase_url": "https://archer-hit-app.firebaseio.com",
+    "project_id": "archer-hit-app",
+    "storage_bucket": "archer-hit-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:167302457853:android:2f69c6d1df2f4e9b4c1194",
+        "android_client_info": {
+          "package_name": "com.applecakestudios.archer"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "167302457853-luc613me25893sd64ivc14m8dmibovuv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC4HG0gkfLGoX-vx966IZiF_rHio1vyNy8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "167302457853-luc613me25893sd64ivc14m8dmibovuv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
